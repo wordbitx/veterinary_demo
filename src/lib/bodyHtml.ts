@@ -73,7 +73,6 @@ export const BODY_HTML = `
   </div>
   <div class="hero-media rv rv-from-right">
     <div class="hero-img"><img src="/assets/hero-pets.jpg" alt="Golden dog, tabby cat, parrot and rabbit together in green grass" fetchpriority="high" /></div>
-    <div class="lad-badge" role="img" aria-label="Rated 5.0 on Google from 22 reviews"><span class="lb-ring"><span class="lb-lad">★ 5.0</span><span class="lb-div"></span><span class="lb-sub">Google rating · 22 reviews</span></span></div>
   </div>
 </div></div>
 
@@ -170,7 +169,7 @@ export const BODY_HTML = `
       </ul>
       <a class="btn btn-navy" href="/about" style="margin-top:22px"><i data-lucide="info"></i>Read more about us</a>
     </div>
-    <div class="rv rv-from-right"><div class="about-lockup-card"><div class="photo-blank" role="img" aria-label="Space reserved for the clinic photo"><span class="pb-label">Clinic photo — coming soon</span></div></div></div>
+    <div class="rv rv-from-right"><div class="about-lockup-card"><div class="about-photo"><img src="/doctor-umair-afzal.jpg" alt="Dr Umair Afzal — main doctor at Afzal vet & pet clinic" loading="lazy" /></div><div class="about-photo-cap">Dr Umair Afzal<span>Main Doctor — Afzal vet &amp; pet clinic</span></div></div></div>
   </div>
 </div></section>
 
@@ -193,8 +192,8 @@ export const BODY_HTML = `
 <section id="vet"><div class="wrap">
   <div class="vet-card rv">
     <div class="vet-visual vet-photo">
-      <img src="/assets/vet-rabbit.jpg" alt="Veterinarian gently examining a pet rabbit" loading="lazy" />
-      <span class="vet-photo-cap">Dr Umair Afzal — Veterinary care at our clinic in Lahore</span>
+      <img src="/assets/vet-doctor-cat.jpg" alt="Veterinarian gently examining a cat at the clinic" loading="lazy" />
+      <span class="vet-photo-cap">Gentle veterinary care at our clinic in Kot Araian, Lahore</span>
     </div>
     <div class="vet-body">
       <span class="kicker" style="margin:0">Meet Your Doctor</span>
@@ -217,8 +216,9 @@ export const BODY_HTML = `
 <section class="alt" id="tips"><div class="wrap">
   <div class="sec-head rv"><span class="kicker">Events &amp; Tips</span><h2>Care tips from the clinic</h2><p>Simple, honest guidance for everyday pet care. For anything serious, call us — don't wait on a tip.</p></div>
   <div class="tip-grid">
-    <article class="tip rv rv-d1"><div class="timg"><img src="/assets/vet-parrot.jpg" alt="Veterinarian holding and examining a green parrot" loading="lazy" /></div><div class="tip-body"><span class="tip-tag">Small Pet Tip</span><h3>Rabbits &amp; parrots need checks too</h3><p>Small pets hide illness well. A rabbit that's off its food or a parrot that's unusually quiet needs attention the same day — message us on WhatsApp and we'll guide you.</p></div></article>
-    <article class="tip rv rv-d2"><div class="timg"><img src="/assets/pet-food.jpg" alt="Dog eating premium food from a bowl" loading="lazy" /></div><div class="tip-body"><span class="tip-tag">Nutrition Tip</span><h3>Match food to age &amp; size</h3><p>Puppies, adult dogs and senior cats all need different nutrition. When you order from our Pet Food Shop, ask on WhatsApp which option suits your animal's age, breed and health.</p></div></article>
+    <article class="tip rv rv-d1"><div class="timg"><img src="/assets/vet-persian-cat.jpg" alt="Long-haired Persian cat" loading="lazy" /></div><div class="tip-body"><span class="tip-tag">Cat Care Tip</span><h3>Persian cats need daily grooming</h3><p>Long coats mat fast — brush a Persian daily and wipe its eyes gently. If the coat knots or the eyes water a lot, message us on WhatsApp and we'll guide you.</p></div></article>
+    <article class="tip rv rv-d2"><div class="timg"><img src="/assets/pet-food.jpg" alt="Dog eating premium food from a bowl" loading="lazy" /></div><div class="tip-body"><span class="tip-tag">Dog Care Tip</span><h3>Match food to age &amp; size</h3><p>Puppies, adult dogs and senior cats all need different nutrition. When you order from our Pet Food Shop, ask on WhatsApp which option suits your animal's age, breed and health.</p></div></article>
+    <article class="tip rv rv-d3"><div class="timg"><img src="/assets/vet-parrot.jpg" alt="Veterinarian examining a green parrot with a stethoscope" loading="lazy" /></div><div class="tip-body"><span class="tip-tag">Bird Care Tip</span><h3>Parrots hide illness well</h3><p>A parrot that's unusually quiet or off its food needs attention the same day — message us on WhatsApp and we'll guide you.</p></div></article>
   </div>
 </div></section>
 

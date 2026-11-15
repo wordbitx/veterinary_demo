@@ -50,6 +50,17 @@ export function initAfzalApp(): void {
         '<a class="btn btn-wa btn-sm" href="' + waLink('Assalam-o-Alaikum, I have a question about my pet.') + '" target="_blank" rel="noopener"><i data-lucide="message-circle"></i>WhatsApp</a>' +
         '</div>';
       grid.appendChild(cta);
+      var visit = document.createElement('article');
+      visit.className = 'svc rv rv-d4';
+      visit.innerHTML =
+        '<span class="ic"><i data-lucide="map-pin"></i></span>' +
+        '<h3>Visit the Clinic</h3>' +
+        '<p>Main Kot Araian - Jia Bagga Rd, Kot Araian, Lahore. Open · Closes 11 PM.</p>' +
+        '<div class="svc-actions">' +
+        '<a class="btn btn-call btn-sm" href="https://maps.app.goo.gl/AoWCgEtuofBAHnJ37" target="_blank" rel="noopener"><i data-lucide="map-pin"></i>Get Directions</a>' +
+        '<a class="btn btn-ghost btn-sm" href="tel:+923075987996"><i data-lucide="phone"></i>Call</a>' +
+        '</div>';
+      grid.appendChild(visit);
     });
   }
   renderServices();

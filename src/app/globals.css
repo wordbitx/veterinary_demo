@@ -1199,3 +1199,34 @@ html.menu-lock,body.menu-lock{overflow:hidden;overscroll-behavior:none}
 /* shop-page category tiles: was a cream-tinted box (#FBF4E4) — now the same clean white + shadow treatment */
 .tile{background:#fff;border:0;box-shadow:0 8px 22px -12px rgba(1,58,110,.15)}
 .tile:hover{box-shadow:0 16px 32px -12px rgba(1,58,110,.26)}
+
+/* ---------- Feedback round (user, 15 Nov): premium header, no hero badge, centred CTA, light gradient footer ---------- */
+/* (1) Header — bigger, bolder AFZAL; shorter, tighter tagline; smaller, balanced logo tile */
+.brand-logo-img{height:52px}
+.brand-logo{border-radius:10px;box-shadow:0 6px 16px -6px rgba(1,58,110,.35);border:1px solid rgba(1,58,110,.12)}
+.brand{gap:12px}
+.brand-name{font-size:1.5rem;letter-spacing:.01em}
+.brand-line2{font-size:.72rem;letter-spacing:.2em}
+@media(max-width:1180px){.brand-logo-img{height:46px}}
+@media(max-width:560px){.brand-logo-img{height:40px}.brand-name{font-size:1.12rem}.brand-line2{font-size:.6rem;letter-spacing:.16em}.brand{gap:9px}}
+/* (8) CTA band — buttons centred under the centred heading (also centres the reviews row, same pattern) */
+.row{display:flex;gap:11px;flex-wrap:wrap;justify-content:center}
+/* (4) About preview — real doctor photo (replaces the placeholder blank) */
+.about-lockup-card .about-photo{border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.about-lockup-card .about-photo img{width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:center 22%;display:block}
+.about-photo-cap{margin-top:14px;text-align:center;font-family:Poppins,sans-serif;font-weight:700;font-size:.92rem;color:var(--navy)}
+.about-photo-cap span{display:block;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:2px}
+/* (9) Footer — Quran-site pattern in our palette: light gradient (white → soft green → pale blue), green→navy top bar, dark text, small logo */
+footer{background:linear-gradient(180deg,#ffffff 0%,#EFF7EB 48%,#DCEBF5 100%);color:var(--muted)}
+footer::before{content:"";display:block;height:3px;background:linear-gradient(90deg,var(--accent),var(--navy))}
+footer h4{color:var(--navy)}
+.foot-clinic{color:var(--navy)}
+.foot-clinic span{color:var(--accent)}
+.foot-phone{color:var(--navy)}
+footer ul a,footer ul button{color:var(--muted)}
+footer ul a:hover,footer ul button:hover{color:var(--navy)}
+.foot-brand p{color:var(--muted)}
+.foot-logo-img{max-width:180px;border:1px solid rgba(1,58,110,.14);box-shadow:0 10px 24px -10px rgba(1,58,110,.35)}
+.foot-bottom{border-top-color:rgba(1,58,110,.14)}
+.wb-credit{color:var(--muted)}
+.wb-credit a{color:var(--navy);border-bottom-color:rgba(1,58,110,.35)}

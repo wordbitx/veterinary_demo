@@ -24,10 +24,52 @@ each of these before any of them is added:
 - Anything else the clinic actually does
 
 ## 2. Clinic photo / image
-The user said he has a clinic image. Send it — it replaces the
-"Clinic photo — coming soon" placeholder in the About preview on the
-home page. (Any extra photos — doctors at work, shop shelves — are
-welcome too, but the one clinic photo is the must-have.)
+The user said he has a clinic image. Send it — the About preview on
+the home page now shows Dr Umair Afzal's real photo instead of the
+"Clinic photo — coming soon" placeholder (feedback round, 15 Nov),
+but a real clinic/shop photo is still welcome. (Any extra photos —
+doctors at work, shop shelves — are welcome too.)
+
+## Done 15 Nov — feedback round (user's 10 items, all applied)
+Preview re-verified on http://localhost:3411 (build pass, 7/7 routes
+200, 0 "Ramzan", 0 "coming soon" in source + served HTML; desktop +
+mobile screenshots in `shots-feedback-r2/`):
+1. Header: "AFZAL" bigger/bolder (1.5rem), tagline shortened to
+   "VET & PET CLINIC"; logo tile smaller (52px desktop / 40px mobile)
+   with a balanced border + shadow. Real logo image, never redrawn.
+2. Hero: golden 5.0 badge REMOVED (rating stays as the text line
+   "Rated 5.0 on Google — 22 reviews"). Hero image UNCHANGED.
+3. "Care for your pet": 4th box added — "Visit the Clinic" (address
+   + "Open · Closes 11 PM" + Get Directions + Call), on home and
+   /services. No invented service added.
+4. About preview: Dr Umair's real photo replaces the placeholder,
+   captioned "Dr Umair Afzal — Main Doctor".
+5. "Meet your doctor": rabbit image replaced with a CAT image
+   (smiling male vet + Bengal cat); caption made neutral so the stock
+   photo is never implied to be Dr Umair.
+6. "Care tips": 3 items in order — Persian cat, dog, parrot.
+7. "At our clinic": female-presenting photos replaced with male-vet
+   photos (dog + cat first); rabbit (hands-only) and parrot
+   (hands-only) kept last as secondary. Top-3 "Visit the clinic"
+   cards also now show the male-vet photos.
+8. CTA band "Your pet needs care today?": buttons centred under the
+   centred heading (desktop + mobile).
+9. Footer: light gradient like the Quran Light site (white → soft
+   green #EFF7EB → pale blue #DCEBF5), green→navy 3px top bar, dark
+   text, logo smaller (180px). Real logo image kept.
+10. Hero image NOT changed (user to advise separately).
+
+Photo sources (real photos, visually verified, no AI/generated
+faces — keep this list; swap for licensed/Pexels shots if the
+client prefers): hero-dog.jpg = veturno.com.ar (male vet +
+German Shepherd); vet-cat.jpg = provet.com (male vet + black/white
+cat); vet-hands.jpg = Vecteezy (male vet + ginger cat, otoscope);
+vet-doctor-cat.jpg = iStock photo via parentsquare/smartsites
+(smiling male vet + Bengal cat); vet-persian-cat.jpg = myloview.se
+(Persian cat, black background); vet-parrot.jpg =
+harlingenveterinaryclinic.com (hands-only + green parrot).
+Old photo files backed up in /tmp/old-*.jpg (tmp is wiped on
+restart — re-download from the sources above if ever needed).
 
 ## 3. Product list & prices — only if a real shop catalogue is wanted
 Right now the Pet Food Shop is a shell on purpose: no products, no

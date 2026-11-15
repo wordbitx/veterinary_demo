@@ -85,6 +85,31 @@ export function initAfzalApp(): void {
     setTimeout(function () { rvEls.forEach(function (el) { el.classList.add('is-visible'); }); }, 8000);
   }
 
+  /* ---------- reviews carousel: gentle auto-scroll, pauses on hover/touch ---------- */
+  var revTrack = document.querySelector('#reviews .rev-grid');
+  if (revTrack && !reduceMotion) {
+    var revTimer = null;
+    function revStep() {
+      var card = revTrack.querySelector('.rev-card');
+      if (!card) return;
+      var max = revTrack.scrollWidth - revTrack.clientWidth;
+      if (max <= 0) return; // fits without scrolling — nothing to auto-scroll
+      var step = card.getBoundingClientRect().width + 19;
+      /* Instant (not smooth) scrolling: smooth scrollBy never advances on some
+         mobile browsers/headless mobile, while direct assignment always lands
+         cleanly on the next snap point thanks to scroll-snap. */
+      if (revTrack.scrollLeft >= max - 4) revTrack.scrollLeft = 0;
+      else revTrack.scrollLeft += step;
+    }
+    function revStart() { if (!revTimer) revTimer = setInterval(revStep, 4200); }
+    function revStop() { if (revTimer) { clearInterval(revTimer); revTimer = null; } }
+    revTrack.addEventListener('mouseenter', revStop);
+    revTrack.addEventListener('mouseleave', revStart);
+    revTrack.addEventListener('touchstart', revStop, { passive: true });
+    revTrack.addEventListener('touchend', function () { setTimeout(revStart, 4000); });
+    revStart();
+  }
+
   /* ---------- header + mobile menu ---------- */
   var header = document.getElementById('siteHeader');
   window.addEventListener('scroll', function () { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });

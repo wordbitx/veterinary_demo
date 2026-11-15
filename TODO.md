@@ -30,7 +30,11 @@ the home page now shows Dr Umair Afzal's real photo instead of the
 but a real clinic/shop photo is still welcome. (Any extra photos —
 doctors at work, shop shelves — are welcome too.)
 
-## Done 15 Nov — feedback round (user's 10 items, all applied)
+## Done 15 Nov — feedback round 2 EXTENDED (user's 10 + extended points, all applied)
+Preview re-verified on http://localhost:3412 (build pass, 7/7 routes
+200, 0 "Ramzan", 0 "coming soon" in source + served HTML; desktop +
+mobile screenshots in `shots-feedback-r3/`):
+- Micro-fix after verification: top-3 'Ask on WhatsApp' button → 'WhatsApp' (one line in the narrow half-width button; all other 'Ask on WhatsApp' labels unchanged).
 Preview re-verified on http://localhost:3411 (build pass, 7/7 routes
 200, 0 "Ramzan", 0 "coming soon" in source + served HTML; desktop +
 mobile screenshots in `shots-feedback-r2/`):
@@ -70,6 +74,21 @@ vet-doctor-cat.jpg = iStock photo via parentsquare/smartsites
 harlingenveterinaryclinic.com (hands-only + green parrot).
 Old photo files backed up in /tmp/old-*.jpg (tmp is wiped on
 restart — re-download from the sources above if ever needed).
+
+## Done 15 Nov — feedback round 2 EXTENDED (user reviewed the LIVE site on phone, ~19:28 + 19:30)
+Preview re-verified on http://localhost:3412 (build pass, 7/7 routes 200, 0 "Ramzan", 0 "coming soon" in source + served HTML; desktop + mobile screenshots in `shots-feedback-r3/`):
+Round 2, points 1–6 (first brief):
+1. Header: logo tile black → clean WHITE (soft border + shadow); header background → footer-style light gradient (white → #EFF7EB → #DCEBF5). "AFZAL" big/bold + tagline, nav, Call/Book buttons unchanged.
+2. "Care for your pet" 4 boxes: equal height (grid stretch + flex column, text flex:1), buttons pinned to bottom (margin-top:auto), both buttons stacked full-width — same size, same baseline on every card. Copy/destinations unchanged.
+3. Hero: small "Dog"/"Cat" icon chips REMOVED. Headline, hero image, rating line unchanged.
+4. Footer: long 3px gradient top bar REMOVED (footer::before deleted). Footer gradient background stays.
+5. Footer logo: big 180px image → SMALL horizontal lockup like the header (small white logo tile + "AFZAL" bold + "VET & PET CLINIC" tagline beside it, navy name on the light gradient). Rest of footer unchanged.
+6. Animations: audited all sections — Reveal was missing on the feature strip, the shop-page banner and the footer; added `.rv` there. All other major sections (hero, 4 boxes with stagger, stats, shop preview, about/doctor, why, vet card, care tips, gallery, reviews, CTA) already had Reveal. Verified: 87 `.rv` elements, 0 stuck hidden after scroll + 8000ms force-reveal.
+Extended points A–D (second brief, same build):
+A. "How we work" 3 cards (Visit the Clinic / Pet Food Shop / Book a Visit): made COMPACT — shorter image (16/8), tighter body padding, smaller heading — and both buttons equal width on ONE baseline (2-col grid pinned to bottom, labels may wrap). Copy/destinations unchanged.
+B. Reviews: (1) MOVED UP — now right after the "Care for your pet" services grid, before "How we work" (home order now: hero → stats → services → reviews → How we work → shop → about → why → vet → tips → gallery → CTA). Heading "What pet owners say" + "Rated 5.0 on Google — 22 reviews" kept. (2) Button spacing balanced: 30px gap above the buttons, 14px between them, section bottom padding cut 84px → 52px. (3) Horizontal AUTO-SCROLL carousel (scroll-snap, pauses on hover/touch, wraps to start). HONESTY: no invented reviews — Google Maps page could not be read (browser fetch returned no text) and web search surfaced no additional verifiable reviews for THIS clinic, so the carousel has the 3 REAL Google reviews (Malaika Chaudhary, Muhammad Abdullah, zohaib tahir — real quotes already on the site) + a 4th CTA card "Read all 22 reviews on Google" (real Maps link). Auto-scroll verified live: desktop scrollLeft 4 → 233 → 4, mobile 4 → 314 → 623 → 874. Two real bugs found & fixed while verifying: (i) wrap condition used scrollLeft+step so it never advanced when one step exceeded the remaining scroll; (ii) smooth scrollBy never advances on mobile headless Firefox — switched to instant scrollLeft assignment (snap aligns it cleanly).
+C. "At our clinic" gallery: compact — DESKTOP 4 in ONE row (was 3+1 wrap), MOBILE horizontal scroll with scroll-snap + peek (78% cards). Captions/images unchanged.
+D. General audit of every other multi-card row on all 7 routes: feature strip (4 links, equal height via grid — no change), Why (6 cards, no buttons — no change), care tips (fixed image aspect, no buttons — no change), 3-step cards on Book/Shop (no buttons — no change), Pet Food Shop 2 cards (equal via grid — no change), FAQ accordion, Contact split, vet card, emergency band, stats strip — all fine, no changes needed. One extra fix from the audit: review cards made flex-column (quote flex:1) so reviewer names sit on the same baseline.
 
 ## 3. Product list & prices — only if a real shop catalogue is wanted
 Right now the Pet Food Shop is a shell on purpose: no products, no

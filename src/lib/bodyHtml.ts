@@ -66,17 +66,13 @@ export const BODY_HTML = `
       <a class="btn btn-ghost" href="${TEL}"><i data-lucide="phone"></i>Call 0307-5987996</a>
     </div>
     <p class="hero-call rv">Rated <strong>5.0 on Google</strong> — 22 reviews. Open · Closes 11 PM.</p>
-    <div class="animal-row rv" aria-label="Animals we treat">
-      <span class="animal-tag"><i data-lucide="dog"></i>Dog</span>
-      <span class="animal-tag"><i data-lucide="cat"></i>Cat</span>
-    </div>
   </div>
   <div class="hero-media rv rv-from-right">
     <div class="hero-img"><img src="/assets/hero-pets.jpg" alt="Golden dog, tabby cat, parrot and rabbit together in green grass" fetchpriority="high" /></div>
   </div>
 </div></div>
 
-<div class="wrap feat-wrap"><nav class="feat-strip" aria-label="Main services">
+<div class="wrap feat-wrap"><nav class="feat-strip rv" aria-label="Main services">
   <a class="feat" href="/contact"><span class="fic"><i data-lucide="map-pin"></i></span><span><b>Visit the Clinic</b><small>Kot Araian, Lahore</small></span></a>
   <a class="feat" href="${TEL}"><span class="fic"><i data-lucide="phone"></i></span><span><b>Call or WhatsApp</b><small>0307-5987996 — one number</small></span></a>
   <a class="feat" href="/shop"><span class="fic"><i data-lucide="shopping-bag"></i></span><span><b>Pet Food Shop</b><small>Ask for availability &amp; prices</small></span></a>
@@ -86,6 +82,38 @@ export const BODY_HTML = `
 <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack">
   <span><i data-lucide="shopping-bag"></i>Vet Clinic &amp; Pet Food Shop</span><span><i data-lucide="stethoscope"></i>Dr Umair Afzal — Main Doctor</span><span><i data-lucide="star"></i>Rated 5.0 on Google</span><span><i data-lucide="shopping-bag"></i>Pet Food &amp; Supplies</span><span><i data-lucide="phone"></i>Call 0307-5987996</span><span><i data-lucide="clock"></i>Open · Closes 11 PM</span>
 </div></div>
+
+<!-- STATS STRIP (verified figures only) -->
+<div class="stats"><div class="wrap stats-in">
+  <div class="stat rv rv-d1"><b>5.0</b><span>Google rating</span></div>
+  <div class="stat rv rv-d2"><b>22</b><span>Google reviews</span></div>
+  <div class="stat rv rv-d3"><b>1</b><span>Main doctor — Dr Umair Afzal</span></div>
+  <div class="stat rv rv-d4"><b>1 <i>call</i></b><span>0307-5987996 — for everything</span></div>
+</div></div>
+
+</div>
+<div data-page="home">
+<!-- OUR SERVICES (home) -->
+<section id="homeServices" style="padding-top:64px"><div class="wrap">
+  <div class="sec-head center rv"><span class="kicker">Our Services</span><h2>Care for your pet, at our clinic</h2><p>Two services we offer today — consultation with our doctors, and pet food &amp; supplies in store. Ask us on WhatsApp about anything else.</p></div>
+  <div class="svc-grid" id="homeSvcGrid"></div>
+  <div class="shop-note rv" style="margin-top:26px"><i data-lucide="phone-call"></i><span><strong>Something else your pet needs?</strong> Call <a href="${TEL}" style="font-weight:700;color:var(--accent)">0307-5987996</a> or ask on WhatsApp — we will tell you honestly whether we can help.</span></div>
+</div></section>
+<!-- REVIEWS — real Google reviews only -->
+<section class="alt" id="reviews"><div class="wrap">
+  <div class="sec-head center rv"><span class="kicker">Reviews</span><h2>What pet owners say</h2><p>Rated 5.0 on Google — 22 reviews. Here is what pet owners wrote about Dr Umair Afzal.</p></div>
+  <p class="rev-hint rv">Drag or swipe to see more reviews →</p>
+  <div class="rev-grid">
+    <article class="rev-card rv rv-d1"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Gentle and caring treatment.”</p><div class="rev-name">Malaika Chaudhary</div><div class="rev-src">Google review · 5 stars</div></article>
+    <article class="rev-card rv rv-d2"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Dr Umair Afzal and the staff are compassionate.”</p><div class="rev-name">Muhammad Abdullah</div><div class="rev-src">Google review · 5 stars</div></article>
+    <article class="rev-card rv rv-d3"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Gentle treatment — he listens carefully.”</p><div class="rev-name">zohaib tahir</div><div class="rev-src">Google review · 5 stars</div></article>
+
+    <article class="rev-card rev-more rv rv-d4"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“See what all 22 pet owners wrote about Dr Umair Afzal on Google.”</p><div class="rev-name">22 reviews on Google</div><div class="rev-src">Rated 5.0 — Afzal vet &amp; pet clinic</div><a class="btn btn-navy btn-sm" href="${MAPS}" target="_blank" rel="noopener"><i data-lucide="star"></i>Read all reviews</a></article>  </div>
+  <div class="row rv rev-btns">
+    <a class="btn btn-navy" href="${MAPS}" target="_blank" rel="noopener"><i data-lucide="star"></i>Read all reviews on Google</a>
+    <a class="btn btn-ghost" href="${TEL}"><i data-lucide="phone"></i>Call 0307-5987996</a>
+  </div>
+</div></section>
 
 <!-- TOP 3 — VISIT / PET FOOD / BOOK -->
 <section id="start" style="padding-top:70px"><div class="wrap">
@@ -108,7 +136,7 @@ export const BODY_HTML = `
         <h3>Pet Food Shop</h3>
         <p>Pet food and supplies available at the clinic. Message us on WhatsApp for availability and prices — no prices listed online.</p>
         <div class="tc-actions">
-          <a class="btn btn-wa btn-sm" href="${WA_GENERIC}" target="_blank" rel="noopener">${WA}Ask on WhatsApp</a>
+          <a class="btn btn-wa btn-sm" href="${WA_GENERIC}" target="_blank" rel="noopener">${WA}WhatsApp</a>
           <a class="btn btn-ghost btn-sm" href="/shop"><i data-lucide="shopping-bag"></i>See the Shop</a>
         </div>
       </div>
@@ -125,23 +153,6 @@ export const BODY_HTML = `
       </div>
     </article>
   </div>
-</div></section>
-
-<!-- STATS STRIP (verified figures only) -->
-<div class="stats"><div class="wrap stats-in">
-  <div class="stat rv rv-d1"><b>5.0</b><span>Google rating</span></div>
-  <div class="stat rv rv-d2"><b>22</b><span>Google reviews</span></div>
-  <div class="stat rv rv-d3"><b>1</b><span>Main doctor — Dr Umair Afzal</span></div>
-  <div class="stat rv rv-d4"><b>1 <i>call</i></b><span>0307-5987996 — for everything</span></div>
-</div></div>
-
-</div>
-<div data-page="home">
-<!-- OUR SERVICES (home) -->
-<section id="homeServices" style="padding-top:64px"><div class="wrap">
-  <div class="sec-head center rv"><span class="kicker">Our Services</span><h2>Care for your pet, at our clinic</h2><p>Two services we offer today — consultation with our doctors, and pet food &amp; supplies in store. Ask us on WhatsApp about anything else.</p></div>
-  <div class="svc-grid" id="homeSvcGrid"></div>
-  <div class="shop-note rv" style="margin-top:26px"><i data-lucide="phone-call"></i><span><strong>Something else your pet needs?</strong> Call <a href="${TEL}" style="font-weight:700;color:var(--accent)">0307-5987996</a> or ask on WhatsApp — we will tell you honestly whether we can help.</span></div>
 </div></section>
 </div>
 <div data-page="home">
@@ -233,20 +244,6 @@ export const BODY_HTML = `
   </div>
 </div></section>
 
-<!-- REVIEWS — real Google reviews only -->
-<section class="alt" id="reviews"><div class="wrap">
-  <div class="sec-head center rv"><span class="kicker">Reviews</span><h2>What pet owners say</h2><p>Rated 5.0 on Google — 22 reviews. Here is what pet owners wrote about Dr Umair Afzal.</p></div>
-  <div class="rev-grid">
-    <article class="rev-card rv rv-d1"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Gentle and caring treatment.”</p><div class="rev-name">Malaika Chaudhary</div><div class="rev-src">Google review · 5 stars</div></article>
-    <article class="rev-card rv rv-d2"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Dr Umair Afzal and the staff are compassionate.”</p><div class="rev-name">Muhammad Abdullah</div><div class="rev-src">Google review · 5 stars</div></article>
-    <article class="rev-card rv rv-d3"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Gentle treatment — he listens carefully.”</p><div class="rev-name">zohaib tahir</div><div class="rev-src">Google review · 5 stars</div></article>
-  </div>
-  <div class="row rv" style="margin-top:26px">
-    <a class="btn btn-navy" href="${MAPS}" target="_blank" rel="noopener"><i data-lucide="star"></i>Read all reviews on Google</a>
-    <a class="btn btn-ghost" href="${TEL}"><i data-lucide="phone"></i>Call 0307-5987996</a>
-  </div>
-</div></section>
-
 <!-- CTA BAND -->
 <section class="alt" style="padding-top:20px"><div class="wrap">
   <div class="sec-head center rv"><span class="kicker">Ready When You Are</span><h2>Your pet needs care today?</h2><p>Visit us in Kot Araian, Lahore — or call / WhatsApp 0307-5987996. Open · Closes 11 PM.</p></div>
@@ -272,7 +269,7 @@ export const BODY_HTML = `
 <!-- PET FOOD SHOP -->
 <section class="page-sec"><div class="wrap">
   <nav class="crumb" aria-label="Breadcrumb"><button class="back-btn" data-backbtn><i data-lucide="arrow-left"></i>Back</button><a href="/">Home</a><span class="sep">›</span><b>Pet Food Shop</b></nav>
-  <div class="shop-banner"><h1>Pet Food Shop</h1><p>Pet food and supplies are available at the clinic in Kot Araian, Lahore. We don't list prices online — message us on WhatsApp for availability and prices, and collect from the clinic.</p>
+  <div class="shop-banner rv"><h1>Pet Food Shop</h1><p>Pet food and supplies are available at the clinic in Kot Araian, Lahore. We don't list prices online — message us on WhatsApp for availability and prices, and collect from the clinic.</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
       <a class="btn btn-wa" href="${WA_GENERIC}" target="_blank" rel="noopener">${WA}Ask on WhatsApp</a>
       <a class="btn btn-ghost" href="${TEL}"><i data-lucide="phone"></i>Call 0307-5987996</a>
@@ -449,11 +446,10 @@ export const BODY_HTML = `
 </div></section>
 </div>
 </main>
-<footer><div class="wrap">
+<footer class="rv"><div class="wrap">
   <div class="foot-grid">
     <div class="foot-brand">
-      <img class="foot-logo-img" src="/logo-veterinary-hospital.png" alt="Veterinary Hospital — Healthy Pets. Happy Lives." />
-      <div class="foot-clinic">AFZAL<span>VET &amp; PET CLINIC</span></div>
+      <a class="brand" href="/" aria-label="Afzal vet &amp; pet clinic — home"><span class="brand-logo"><img class="brand-logo-img" src="/logo-veterinary-hospital.png" alt="Veterinary Hospital logo" /></span><span class="brand-txt"><span class="brand-name">AFZAL</span><span class="brand-line2">VET &amp; PET CLINIC</span></span></a>
       <p>Compassionate care, healthy lives. A veterinary clinic &amp; pet store in Kot Araian, Lahore.</p>
       <a class="foot-phone" href="${TEL}"><i data-lucide="phone"></i>0307-5987996</a>
       <p style="margin-top:8px">Open · Closes 11 PM</p>

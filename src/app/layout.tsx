@@ -4,9 +4,9 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title:
-    'Afzal vet & pet clinic — Vet Clinic & Pet Food Shop in Lahore',
+    'Afzal vet & pet clinic — Home Visit & Online Vet Care + Pet Food Shop',
   description:
-    'Afzal vet & pet clinic, Kot Araian, Lahore — vet consultations with Dr Umair Afzal, the clinic’s main doctor, plus a pet food shop. Rated 5.0 on Google (22 reviews). Call or WhatsApp 0307-5987996.',
+    'Afzal vet & pet clinic, Kot Araian, Lahore — home visit & online vet care for pets & livestock: dogs, cats, rabbits, parrots, cows, buffalo, goats & horses. Plus a pet food shop with real prices. Rated 5.0 on Google (22 reviews). Call 0307-5987996.',
 };
 
 export const viewport: Viewport = {

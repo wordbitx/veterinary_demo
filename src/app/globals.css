@@ -1312,3 +1312,34 @@ header.site .brand-logo{background:transparent;border:0;box-shadow:none;border-r
 .policy-sec p,.policy-sec li{color:var(--muted);font-size:.96rem;line-height:1.75}
 .policy-sec ul{padding-left:20px;display:grid;gap:6px;margin:8px 0}
 .policy-sec a{color:var(--accent);font-weight:600}
+
+/* ---------- Premium finish (Afzal rebuild, 15 Nov 2026) ----------
+   Shop product cards are a PREMIUM redesign, not a literal copy of the
+   reference boxes: same products, categories and prices, but a refined,
+   compact card — soft-tinted image stage, balanced proportions, clean
+   type scale, tidy price row and a calm qty + Add row with a full-width
+   WhatsApp Buy Now below. Same treatment on the product-detail image
+   stage, category tiles and brand tiles. */
+.prod{border:1px solid #E7EDF3;border-radius:20px;box-shadow:0 10px 26px -18px rgba(1,58,110,.28)}
+.prod:hover{transform:translateY(-5px);box-shadow:0 20px 38px -18px rgba(1,58,110,.32);border-color:#D8E4EC}
+.prod .pimg{background:linear-gradient(180deg,#F7FAF8,#EFF5F0);padding:22px 22px 8px;border-bottom:1px solid #EDF2F0}
+.prod .pimg img{height:196px}
+.prod-body{padding:16px 18px 18px;gap:5px}
+.prod h3{font-size:1rem;line-height:1.4;min-height:2.8em}
+.prod-cat{color:var(--accent);letter-spacing:.08em}
+.prod-brand{font-size:.8rem}
+.price-now{font-size:1.2rem}
+.price-was{font-size:.85rem}
+.prod-foot{padding-top:10px}
+.sale-badge{font-size:.68rem;padding:5px 10px;letter-spacing:.05em}
+.pd-img{background:linear-gradient(180deg,#F7FAF8,#EFF5F0);border:1px solid #E7EDF3}
+.ct-box{background:linear-gradient(180deg,#F7FAF8,#EFF5F0)!important;border:1px solid #EAF0EA}
+.brand2-tile{border:1px solid #E7EDF3;box-shadow:0 8px 22px -12px rgba(1,58,110,.12)}
+.brand2-tile:hover{transform:translateY(-4px);box-shadow:0 16px 32px -14px rgba(1,58,110,.24);border-color:#D8E4EC}
+@media(max-width:639px){
+  .prod .pimg{padding:14px 14px 4px}
+  .prod .pimg img{height:150px}
+  .prod-body{padding:12px 13px 14px}
+  .prod h3{font-size:.88rem}
+  .price-now{font-size:1.05rem}
+}

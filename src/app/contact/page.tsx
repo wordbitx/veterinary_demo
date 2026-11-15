@@ -3,7 +3,6 @@ import SiteShell from '../../components/SiteShell';
 
 export const metadata: Metadata = { title: 'Contact — Afzal vet & pet clinic' };
 
-// /contact — the shared shell shows the matching section (clean URL, no hash).
-export default function ContactPage() {
+export default function Page() {
   return <SiteShell />;
 }

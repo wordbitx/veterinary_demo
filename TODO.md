@@ -1,12 +1,81 @@
 # Afzal vet & pet clinic — TODO (what the user must provide)
 
 The site at `~/workspace/afzal-vet-clinic/` is built and previewed locally.
-It shows ONLY verified facts. Everything below is still needed from the
-user / the clinic before the site can be finalised. Nothing here has been
-invented on the site — if an item is unanswered, the site simply does not
-claim it.
+
+## ⚠️ DONE 15 Nov — Ramzan mirror rebuild — READ THE PRICES FLAG FIRST
+
+The site is now mirrored page-by-page from the Ramzan veterinary site
+(same-to-same, per the user's instruction): 19 routes, all 7 pet services
++ 6 livestock services, the full 45-product Pet Food Shop with cart and
+2-step WhatsApp checkout (COD / JazzCash / Easypaisa to 0307-5987996),
+order IDs AFZ-YYYYMMDD-NNN. Preview verified on http://localhost:3414
+(build pass, 19/19 routes 200, 0 "Ramzan" / 0 "Rizwan" / 0 "0326-6565364"
+in src + served HTML; desktop + mobile screenshots in
+`shots-feedback-r5/`). NO push, NO deploy yet.
+
+### 🚨 PRICES FLAG — THE 45 SHOP PRICES ARE NOT AFZAL'S PRICES
+**All 45 product prices on the site are DEMO prices copied from the
+mirror source (originally another shop's price list, audited 4 Nov 2026).
+They are NOT Afzal vet & pet clinic's prices and MUST be replaced with
+the clinic's real prices before the site goes live / takes real orders.**
+The site itself says prices are being updated and the final price is
+confirmed on WhatsApp before anyone pays — so no customer can pay a
+wrong price — but the listed prices must still be swapped for Afzal's
+own. Send the clinic's real product list + prices (see item 3 below,
+now the most important open item). The flag is also in
+`src/lib/products.ts` and `src/lib/app.ts` (search "DEMO prices").
+
+### What changed in this rebuild
+- New routes: /livestock, /brands, /brand/[name], /cart, /checkout,
+  /product/[id], /shop/cats, /shop/dogs, /shop/[pet]/[sub] (19 total).
+- /services: all 7 pet services + livestock note; /livestock: all 6
+  livestock services; /book: full wizard (9 animals, 11 services,
+  4 time slots incl. Night, visit type); /about, /contact: mirrored
+  layouts with Afzal identity; header nav now exactly Ramzan's set
+  (Home, Services, Livestock, Pet Food Shop, About, Book a Visit,
+  Contact — NO "FAQs" in the header; /faq route + footer link kept).
+- Shop product cards are a PREMIUM redesign (not a pixel copy of the
+  reference boxes): compact refined cards — soft-tinted image stage,
+  balanced proportions, clean type, tidy price + qty/Add row, full-width
+  WhatsApp Buy Now. Same products, categories and (demo) prices.
+- Kept from Afzal: white header + blended logo (real logo image, never
+  redrawn), side-by-side service-box buttons, footer social icons
+  (WhatsApp/Facebook/Google real links, Instagram disabled) + Privacy /
+  Terms / Cookie pages (updated for the shop + checkout), Quran-style
+  Reveal on every section, "Rated 5.0 on Google — 22 reviews" line,
+  Dr Umair Afzal's real photo as main doctor, Afzal blue #013A6E +
+  green #419C2F, real Google reviews (Malaika Chaudhary, Muhammad
+  Abdullah, zohaib tahir + "Read all 22 reviews on Google" card).
+
+### Deliberately NOT mirrored 1:1 (and why)
+- The other clinic's posters (pet-services English poster, livestock
+  Urdu poster with the other clinic's name) were NOT copied — they are
+  that clinic's branding and Afzal has no equivalent posters yet. The
+  Posters section is absent; send Afzal posters if the clinic has any.
+- The "LAD (Licentiate in Animal Health)" credential was NOT carried
+  over to Dr Umair Afzal — it is the other doctor's qualification and
+  was never verified for Dr Umair. The LAD badge, topbar "LAD" and all
+  "qualified LAD" wording were removed/replaced with neutral wording.
+- "No clinic to travel to" wording was adapted everywhere: Afzal HAS a
+  real clinic (Main Kot Araian - Jia Bagga Rd, Kot Araian, Lahore
+  54000, open · closes 11 PM). Copy now says: visit the clinic, or
+  book a home visit, or consult online. FAQ Q1 answers "Yes" with the
+  address instead of "No". (Two spots were missed in the first pass and
+  caught on screenshot review 15 Nov: the hero sub "No clinic visit
+  needed." → "Vet care at your home, at our clinic — or online." and
+  the Home Visit card "no clinic trip" → "no travel for your animal".
+  Rebuilt + re-verified after the fix; 0 occurrences left.)
+- Reviews: the other clinic had NO reviews (empty state). Afzal keeps
+  its REAL Google reviews carousel. Per the mirror, the reviews section
+  now sits in the reference position (end of home, after the gallery)
+  instead of the round-2 position (right after services).
+- Order IDs use AFZ- (not the other clinic's RVH- prefix); payment
+  numbers are Afzal's 0307-5987996 ONLY.
 
 ## 1. Services list (most important)
+> SUPERSEDED 15 Nov — the user instructed same-to-same as the reference
+> site, so the 7 pet + 6 livestock services are now live (see above).
+> Still confirm with the clinic which of these it actually offers.
 Currently the site shows only two services, because those are the only
 ones verified:
 - Veterinary Consultation (with Dr Umair Afzal, the clinic's main doctor)
@@ -99,6 +168,9 @@ C. "At our clinic" gallery: compact — DESKTOP 4 in ONE row (was 3+1 wrap), MOB
 D. General audit of every other multi-card row on all 7 routes: feature strip (4 links, equal height via grid — no change), Why (6 cards, no buttons — no change), care tips (fixed image aspect, no buttons — no change), 3-step cards on Book/Shop (no buttons — no change), Pet Food Shop 2 cards (equal via grid — no change), FAQ accordion, Contact split, vet card, emergency band, stats strip — all fine, no changes needed. One extra fix from the audit: review cards made flex-column (quote flex:1) so reviewer names sit on the same baseline.
 
 ## 3. Product list & prices — only if a real shop catalogue is wanted
+> SUPERSEDED 15 Nov — the 45 demo products + prices are now live (see
+> the PRICES FLAG at the top: they are demo prices and MUST be replaced
+> with Afzal's real prices). Send the clinic's real list + prices.
 Right now the Pet Food Shop is a shell on purpose: no products, no
 prices, visitors message on WhatsApp for availability and prices.
 If the clinic wants a product catalogue on the site, send:

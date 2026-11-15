@@ -3,7 +3,6 @@ import SiteShell from '../../components/SiteShell';
 
 export const metadata: Metadata = { title: 'FAQs — Afzal vet & pet clinic' };
 
-// /faq — the shared shell shows the matching section (clean URL, no hash).
-export default function FaqPage() {
+export default function Page() {
   return <SiteShell />;
 }

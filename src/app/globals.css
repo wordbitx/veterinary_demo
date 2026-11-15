@@ -1343,3 +1343,20 @@ header.site .brand-logo{background:transparent;border:0;box-shadow:none;border-r
   .prod h3{font-size:.88rem}
   .price-now{font-size:1.05rem}
 }
+
+/* ---------- find the clinic — interactive map ---------- */
+.map-card{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1.15fr;box-shadow:var(--shadow-sm)}
+.map-info{padding:28px 30px}
+.map-info h2{font-size:clamp(1.5rem,3vw,2rem);margin:10px 0 16px}
+.map-line{display:flex;gap:11px;align-items:flex-start;color:var(--muted);margin:0 0 12px}
+.map-line svg{width:19px;height:19px;color:var(--accent);flex:0 0 19px;margin-top:3px}
+.map-btns{display:flex;gap:11px;flex-wrap:wrap;margin-top:20px}
+.map-frame{min-height:220px}
+.map-frame iframe{width:100%;height:100%;min-height:220px;display:block;border:0}
+.map-block{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.map-frame--tall iframe{min-height:260px}
+.map-strip{display:flex;gap:22px;align-items:center;flex-wrap:wrap;padding:18px 24px;border-top:1px solid var(--line)}
+.map-strip span{display:inline-flex;gap:9px;align-items:center;color:var(--muted);font-size:.92rem}
+.map-strip svg{width:18px;height:18px;color:var(--accent);flex:0 0 18px}
+.map-strip .btn{margin-left:auto}
+@media(max-width:860px){.map-card{grid-template-columns:1fr}.map-info{padding:24px 20px}.map-frame iframe{min-height:200px}.map-frame--tall iframe{min-height:220px}.map-strip .btn{margin-left:0}}

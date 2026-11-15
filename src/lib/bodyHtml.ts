@@ -12,6 +12,8 @@ const WA_CAT =
 const WA_DOG =
   'https://wa.me/923075987996?text=Assalam-o-Alaikum%2C%20I%20want%20to%20ask%20about%20dog%20food%20at%20Afzal%20vet%20%26%20pet%20clinic.';
 const MAPS = 'https://maps.app.goo.gl/AoWCgEtuofBAHnJ37';
+const MAPS_PLACE = 'https://www.google.com/maps/place/Afzal+vet+%26+pet+clinic/@31.3379592,74.2366059,18z';
+const MAP_EMBED = 'https://www.google.com/maps?q=31.3379592,74.2366059&amp;z=16&amp;output=embed';
 const TEL = 'tel:+923075987996';
 
 export const BODY_HTML = `
@@ -119,22 +121,6 @@ export const BODY_HTML = `
     </div>
   </div>
 </div></section>
-<!-- REVIEWS — real Google reviews only -->
-<section class="alt" id="reviews"><div class="wrap">
-  <div class="sec-head center rv"><span class="kicker">Reviews</span><h2>What pet owners say</h2><p>Rated 5.0 on Google — 22 reviews. Here is what pet owners wrote about Dr Umair Afzal.</p></div>
-  <p class="rev-hint rv">Drag or swipe to see more reviews →</p>
-  <div class="rev-grid">
-    <article class="rev-card rv rv-d1"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Gentle and caring treatment.”</p><div class="rev-name">Malaika Chaudhary</div><div class="rev-src">Google review · 5 stars</div></article>
-    <article class="rev-card rv rv-d2"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Dr Umair Afzal and the staff are compassionate.”</p><div class="rev-name">Muhammad Abdullah</div><div class="rev-src">Google review · 5 stars</div></article>
-    <article class="rev-card rv rv-d3"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Gentle treatment — he listens carefully.”</p><div class="rev-name">zohaib tahir</div><div class="rev-src">Google review · 5 stars</div></article>
-
-    <article class="rev-card rev-more rv rv-d4"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“See what all 22 pet owners wrote about Dr Umair Afzal on Google.”</p><div class="rev-name">22 reviews on Google</div><div class="rev-src">Rated 5.0 — Afzal vet &amp; pet clinic</div><a class="btn btn-navy btn-sm" href="${MAPS}" target="_blank" rel="noopener"><i data-lucide="star"></i>Read all reviews</a></article>  </div>
-  <div class="row rv rev-btns">
-    <a class="btn btn-navy" href="${MAPS}" target="_blank" rel="noopener"><i data-lucide="star"></i>Read all reviews on Google</a>
-    <a class="btn btn-ghost" href="${TEL}"><i data-lucide="phone"></i>Call 0307-5987996</a>
-  </div>
-</div></section>
-
 <!-- TOP 3 — VISIT / PET FOOD / BOOK -->
 <section id="start" style="padding-top:70px"><div class="wrap">
   <div class="sec-head center rv"><span class="kicker">How We Work</span><h2>Visit the clinic — or message us</h2><p>Three easy ways to care for your pet, every day.</p></div>
@@ -276,6 +262,39 @@ export const BODY_HTML = `
   </div>
 </div></section>
 
+<!-- REVIEWS — real Google reviews only -->
+<section class="alt" id="reviews"><div class="wrap">
+  <div class="sec-head center rv"><span class="kicker">Reviews</span><h2>What pet owners say</h2><p>Rated 5.0 on Google — 22 reviews. Here is what pet owners wrote about Dr Umair Afzal.</p></div>
+  <p class="rev-hint rv">Drag or swipe to see more reviews →</p>
+  <div class="rev-grid">
+    <article class="rev-card rv rv-d1"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Gentle and caring treatment.”</p><div class="rev-name">Malaika Chaudhary</div><div class="rev-src">Google review · 5 stars</div></article>
+    <article class="rev-card rv rv-d2"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Dr Umair Afzal and the staff are compassionate.”</p><div class="rev-name">Muhammad Abdullah</div><div class="rev-src">Google review · 5 stars</div></article>
+    <article class="rev-card rv rv-d3"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Gentle treatment — he listens carefully.”</p><div class="rev-name">zohaib tahir</div><div class="rev-src">Google review · 5 stars</div></article>
+
+    <article class="rev-card rev-more rv rv-d4"><div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div><p>“See what all 22 pet owners wrote about Dr Umair Afzal on Google.”</p><div class="rev-name">22 reviews on Google</div><div class="rev-src">Rated 5.0 — Afzal vet &amp; pet clinic</div><a class="btn btn-navy btn-sm" href="${MAPS}" target="_blank" rel="noopener"><i data-lucide="star"></i>Read all reviews</a></article>  </div>
+  <div class="row rv rev-btns">
+    <a class="btn btn-navy" href="${MAPS}" target="_blank" rel="noopener"><i data-lucide="star"></i>Read all reviews on Google</a>
+    <a class="btn btn-ghost" href="${TEL}"><i data-lucide="phone"></i>Call 0307-5987996</a>
+  </div>
+</div></section>
+
+<!-- FIND THE CLINIC — interactive Google Map -->
+<section id="find-clinic"><div class="wrap">
+  <div class="map-card rv">
+    <div class="map-info">
+      <span class="kicker">Find the Clinic</span>
+      <h2>Visit us in Kot Araian</h2>
+      <p class="map-line"><i data-lucide="map-pin"></i><span>Main Kot Araian - Jia Bagga Rd, Kot Araian, Lahore 54000</span></p>
+      <p class="map-line"><i data-lucide="clock"></i><span>Open · Closes 11 PM</span></p>
+      <div class="map-btns">
+        <a class="btn btn-call" href="${MAPS_PLACE}" target="_blank" rel="noopener"><i data-lucide="map-pin"></i>Get Directions</a>
+        <a class="btn btn-wa" href="${WA_GENERIC}" target="_blank" rel="noopener">${WA}Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div class="map-frame"><iframe src="${MAP_EMBED}" width="600" height="340" style="border:0" loading="lazy" allowfullscreen title="Afzal vet &amp; pet clinic on Google Maps" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</div></section>
+
 <!-- CTA BAND -->
 <section class="alt" style="padding-top:20px"><div class="wrap">
   <div class="sec-head center rv"><span class="kicker">Ready When You Are</span><h2>Your pet needs care today?</h2><p>Visit us in Kot Araian, Lahore — or call / WhatsApp 0307-5987996. Open · Closes 11 PM.</p></div>
@@ -407,6 +426,14 @@ export const BODY_HTML = `
       <button class="btn btn-wa" type="submit"><svg class="wa-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Send on WhatsApp</button>
       <p class="form-note">Prefer to talk? Call <a href="tel:+923075987996" style="font-weight:700">0307-5987996</a></p>
     </form>
+  </div>
+  <div class="map-block rv" style="margin-top:52px">
+    <div class="map-frame map-frame--tall"><iframe src="${MAP_EMBED}" width="800" height="420" style="border:0" loading="lazy" allowfullscreen title="Afzal vet &amp; pet clinic on Google Maps" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="map-strip">
+      <span><i data-lucide="map-pin"></i>Main Kot Araian - Jia Bagga Rd, Kot Araian, Lahore 54000</span>
+      <span><i data-lucide="clock"></i>Open · Closes 11 PM</span>
+      <a class="btn btn-call btn-sm" href="${MAPS_PLACE}" target="_blank" rel="noopener"><i data-lucide="map-pin"></i>Get Directions</a>
+    </div>
   </div>
   <div style="margin-top:52px">
     <div class="emergency rv">

@@ -341,3 +341,14 @@ screenshots in `shots-feedback-r4/`):
 
 ## Round 7b — Pet Food box removed from home grid (user, 15 Nov ~23:04 PKT)
 - Home grid no longer shows Pet Food & Supplies. The dark blue CTA card ("Not sure what your animal needs?") now sits in its place (8th tile). Grid = 7 pet service cards + blue CTA. Change: src/lib/app.ts line 125 (home grid renders SERVICES + ctaCard() only). Book wizard + service detail sheet untouched (Pet Food Order option still in the wizard; HOME_SERVICES data untouched).
+
+## Round 9 — Google Maps embed (user, 15 Nov ~23:49 PKT)
+- Interactive Google Maps embed (no API key, `output=embed`) at the clinic's exact coordinates 31.3379592, 74.2366059. Embed URL: https://www.google.com/maps?q=31.3379592,74.2366059&z=16&output=embed. Get Directions links to the full place URL: https://www.google.com/maps/place/Afzal+vet+%26+pet+clinic/@31.3379592,74.2366059,18z
+- HOME: compact "Find the clinic" card (info + ~340px map) placed AFTER reviews and BEFORE the "Your pet needs care today?" CTA band — heading order verified: What pet owners say → Visit us in Kot Araian → Your pet needs care today?
+- CONTACT: full-width map block (~420px) below the contact form/cards, above the emergency band, with address + "Open · Closes 11 PM" + Get Directions strip.
+- Files: src/lib/bodyHtml.ts (MAPS_PLACE + MAP_EMBED constants, both map blocks), src/app/globals.css (.map-card/.map-frame/.map-block/.map-strip + mobile rules). Reviews section order untouched (round 8). No other pages changed. Never use 03407423558 (not the clinic's displayed phone).
+- Verified on preview :3417: build pass, 18/18 routes 200, /livestock 404, 0 Ramzan/Livestock/03407423558, map tiles + red pin visually confirmed desktop + mobile (first desktop contact screenshot was grey from slow tile load; re-shot with a longer wait — renders fully).
+
+## Round 9b — map made SMALL (user, 15 Nov ~23:56 PKT)
+- User: map too big — show it SMALL; keep sizes appropriate (munasib) so the viewer gets a premium, advanced feel.
+- Home map 340px -> 220px desktop / 200px mobile; contact map 420px -> 260px desktop / 220px mobile; .map-info padding tightened (36px -> 28px desktop, 24px mobile). Verified on :3417 (scroll-into-view + 9s wait — lazy iframe needs the scroll to load tiles): red pin visible on Raiwind Rd at the Jia Bagga Rd junction, desktop + mobile.

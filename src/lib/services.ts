@@ -1,6 +1,9 @@
 // Service data for the Afzal vet & pet clinic.
-// 14 entries: 7 pet services, 1 combined livestock entry (detail sheet only),
-// and 6 livestock services. The site renders 13 service cards (7 pet + 6 livestock).
+// SERVICES: the 7 pet services shown on the /services page.
+// HOME_SERVICES: the 2 services shown on the homepage grid (the d294d49
+// homepage — consultation + pet food shop). The farm-animal section was
+// removed in round 6 (15 Nov 2026); farm-animal images remain in
+// public/assets/ unreferenced.
 
 export interface Service {
   id: string;
@@ -8,7 +11,6 @@ export interface Service {
   name: string;
   desc: string;
   points: string[];
-  lv?: number;
   book?: string;
 }
 
@@ -93,104 +95,37 @@ export const SERVICES: Service[] = [
     "points": [
       "Safe deworming for dogs and cats",
       "Schedule for puppies and kittens too",
-      "Herd deworming available for livestock",
+      "Deworming guidance for multi-pet homes",
       "Next-dose reminder guidance"
     ]
   },
+];
+
+export const HOME_SERVICES: Service[] = [
   {
-    "id": "livestock",
-    "icon": "beef",
-    "name": "Livestock Care & Artificial Insemination",
-    "desc": "Complete care for cow, buffalo, goat and horse — treatment, vaccination, routine checkups and professional artificial insemination, delivered at your farm.",
-    "points": [
-      "Cow, buffalo, goat and horse care",
-      "Treatment of diseases & routine checkups",
-      "Vaccination, deworming & nutrition guidance",
-      "Artificial insemination for better breeds"
-    ]
+    id: 'consultation',
+    icon: 'stethoscope',
+    name: 'Veterinary Consultation',
+    desc: 'Checkups and treatment for your pet, with Dr Umair Afzal — the clinic’s main doctor — at the clinic in Kot Araian, Lahore.',
+    points: [
+      'Consultation with Dr Umair Afzal',
+      'Careful examination before treatment',
+      'Gentle, careful treatment — praised in our Google reviews',
+      'Honest advice on what your pet needs next',
+    ],
+    book: 'Veterinary consultation',
   },
   {
-    "id": "cow",
-    "lv": 1,
-    "icon": "beef",
-    "name": "Cow Care",
-    "book": "Routine Checkup (Livestock)",
-    "desc": "Complete health care for your cows — checkups, treatment and ongoing herd care at your farm.",
-    "points": [
-      "Full health checkup for dairy & beef cows",
-      "Treatment of illness and injury",
-      "Vaccination & deworming schedule",
-      "Feeding and milk-production guidance"
-    ]
+    id: 'pet-food',
+    icon: 'shopping-bag',
+    name: 'Pet Food & Supplies',
+    desc: 'Pet food and supplies available at the clinic shop — ask us on WhatsApp for what is in stock and prices.',
+    points: [
+      'Pet food and supplies available in store',
+      'Message us on WhatsApp for availability and prices',
+      'Ask which food suits your pet\u2019s age and size',
+      'Visit the clinic shop in Kot Araian, Lahore',
+    ],
+    book: 'Pet food enquiry',
   },
-  {
-    "id": "buffalo",
-    "lv": 1,
-    "icon": "paw-print",
-    "name": "Buffalo Care",
-    "book": "Routine Checkup (Livestock)",
-    "desc": "Dedicated care for buffalo — health checks, disease treatment and breeding support at your farm.",
-    "points": [
-      "Complete physical examination",
-      "Treatment of common buffalo diseases",
-      "Vaccination & deworming",
-      "Breeding and nutrition guidance"
-    ]
-  },
-  {
-    "id": "goat",
-    "lv": 1,
-    "icon": "paw-print",
-    "name": "Goat Care",
-    "book": "Routine Checkup (Livestock)",
-    "desc": "Practical, affordable care for goats — from single animals to full herd visits.",
-    "points": [
-      "Health checkups for goats of all ages",
-      "Disease treatment & parasite control",
-      "Vaccination & deworming",
-      "Herd health planning"
-    ]
-  },
-  {
-    "id": "horse",
-    "lv": 1,
-    "icon": "paw-print",
-    "name": "Horse Care",
-    "book": "Routine Checkup (Livestock)",
-    "desc": "Careful examination and treatment for horses — soundness, wounds, illness and routine health.",
-    "points": [
-      "Full health & soundness examination",
-      "Wound care and treatment",
-      "Vaccination & deworming",
-      "Feeding and condition guidance"
-    ]
-  },
-  {
-    "id": "ai",
-    "lv": 1,
-    "icon": "dna",
-    "name": "Artificial Insemination",
-    "book": "Artificial Insemination",
-    "desc": "Professional artificial insemination for better breeds and higher production, done at your farm.",
-    "points": [
-      "Professional AI technique at your farm",
-      "Better breeds & higher production",
-      "Timing guidance for best results",
-      "Follow-up pregnancy advice"
-    ]
-  },
-  {
-    "id": "routine",
-    "lv": 1,
-    "icon": "clipboard-check",
-    "name": "Routine Checkups",
-    "book": "Routine Checkup (Livestock)",
-    "desc": "Scheduled farm visits that catch small problems early — before they cost you animals or income.",
-    "points": [
-      "Regular herd health visits",
-      "Early detection of disease",
-      "Vaccination & deworming kept on schedule",
-      "Simple records of every visit"
-    ]
-  }
 ];

@@ -266,3 +266,33 @@ screenshots in `shots-feedback-r4/`):
   title/aria-label in bodyHtml.ts (the allowed exception).
 - Push/deploy: NOT done — awaiting user approval (round 3 white-header
   change is also still in the working tree and will ship in the same push).
+
+## Round 6 — old homepage back, livestock removed (15 Nov 2026, local only — NOT pushed)
+- Home restored to the d294d49 version exactly (hero, 4 care boxes, stats strip,
+  2-service grid, reviews carousel right after services, top-3 Visit/Pet Food/Book,
+  shop teaser, about preview, why-choose-us, meet your doctor, care tips, gallery,
+  CTA band) PLUS two additions from the mirror build: Shop By Categories (after the
+  services grid) and Top Brands (promo banner + 19 brand tiles, after the gallery,
+  before the CTA band). Note: in the old home the reviews sit right after the
+  services grid, so Top Brands lands after the gallery / before the CTA band.
+- Services page keeps the mirror's 7 pet services (livestock strip removed).
+- Livestock REMOVED everywhere: /livestock route 404s, no header/footer/services/
+  home/book/FAQ/contact/about/terms mention. src/app/livestock/page.tsx deleted
+  locally — NOTE: the snapshot push cannot delete files, so the repo copy of
+  src/app/livestock/page.tsx must be deleted via the GitHub web UI (delete file)
+  when round 6 is pushed. Farm-animal images (svc/cow, buffalo, goat, horse,
+  vet-cow, vet-horse, livestock-pk.jpg) stay in the repo unreferenced, harmless.
+- Header is exactly 6 links: Home, Services, Pet Food Shop, Book a Visit, About,
+  Contact (+ cart icon). Mobile menu: same 6 links + Call/WhatsApp. FAQ reachable
+  only via the footer Quick Links.
+- Book wizard: 7 pet services + Pet Food Order + Other / Not Sure; no livestock
+  services; animal chips are Dog/Cat/Rabbit/Parrot-Bird/Other only.
+- Home services grid shows the 2 old services (Veterinary Consultation + Pet Food
+  & Supplies) as in d294d49; the /services page shows all 7 pet services.
+  (The mirror build never rendered the home grid at all — its homeSvcGrid was
+  empty; round 6 fixes that.)
+- Known inconsistency carried from the old home (kept verbatim per the brief):
+  the home shop teaser says "We don't list prices online" while the shop now
+  lists real (demo) prices. Flag for the user to decide.
+- Prices flag (unchanged): all 45 shop prices are Ramzan demo prices (originally
+  PetsOne's) — MUST be replaced with Afzal's real prices.

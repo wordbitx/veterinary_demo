@@ -6,7 +6,7 @@
 // Real App Router pages (/shop, /product/…). The cart is persisted to
 // localStorage so it survives the page load between real routes.
 import { PRODUCTS, PROD, stageOf, prodDesc, weightKg, perKg } from './products';
-import { SERVICES } from './services';
+import { SERVICES, HOME_SERVICES } from './services';
 
 export function initAfzalApp(): void {
   if ((window as any).__afzalInit) return; (window as any).__afzalInit = true;
@@ -121,17 +121,15 @@ function ctaCard(){
 var petGrid=document.getElementById('petSvcGrid');
 SERVICES.slice(0,7).forEach(function(s,i){ petGrid.appendChild(svcCard(s,i)); });
 petGrid.appendChild(ctaCard());
-var lvGrid=document.getElementById('lvSvcGrid');
-if(lvGrid){
-  SERVICES.filter(function(s){return s.lv;}).forEach(function(s,i){ lvGrid.appendChild(svcCard(s,i)); });
-  lvGrid.appendChild(ctaCard());
-}
+var homeGrid=document.getElementById('homeSvcGrid');
+if(homeGrid){ HOME_SERVICES.forEach(function(s,i){ homeGrid.appendChild(svcCard(s,i)); }); }
+
 if(window.lucide) window.lucide.createIcons();
 
 /* ---------- service detail sheet ---------- */
 var detailOverlay=document.getElementById('detailOverlay'), currentService=null;
 function openDetail(id){
-  var s=null; SERVICES.forEach(function(x){if(x.id===id)s=x;}); if(!s)return; currentService=s;
+  var s=null; SERVICES.concat(HOME_SERVICES).forEach(function(x){if(x.id===id)s=x;}); if(!s)return; currentService=s;
   document.getElementById('dTitle').textContent=s.name;
   document.getElementById('dDesc').textContent=s.desc;
   document.getElementById('dIcon').innerHTML='<i data-lucide="'+s.icon+'"></i>';
@@ -177,7 +175,7 @@ function makeCard(p,eager){ var el=document.createElement('article'); el.classNa
 
 /* best sellers (home) */
 var bsTrack=document.getElementById('bsTrack');
-PRODUCTS.filter(function(p){return p.best;}).forEach(function(p){ bsTrack.appendChild(makeCard(p,true)); });
+if(bsTrack){ PRODUCTS.filter(function(p){return p.best;}).forEach(function(p){ bsTrack.appendChild(makeCard(p,true)); }); }
 var bsP=document.getElementById('bsPrev'), bsN=document.getElementById('bsNext');
 if(bsP)bsP.addEventListener('click',function(){bsTrack.scrollBy({left:-290,behavior:reduceMotion?'auto':'smooth'});});
 if(bsN)bsN.addEventListener('click',function(){bsTrack.scrollBy({left:290,behavior:reduceMotion?'auto':'smooth'});});
@@ -582,7 +580,7 @@ document.addEventListener('click',function(e){
 
 /* ---------- router ---------- */
 var currentPage='home';
-var TITLES={home:'Afzal vet & pet clinic \u2014 Home Visit & Online Vet Care + Pet Food Shop',shop:'Pet Food Shop \u2014 Afzal vet & pet clinic',product:'Product \u2014 Afzal vet & pet clinic',cart:'Your Cart \u2014 Afzal vet & pet clinic',checkout:'Checkout \u2014 Afzal vet & pet clinic',book:'Book a Visit \u2014 Afzal vet & pet clinic',services:'Pet Services \u2014 Afzal vet & pet clinic',livestock:'Livestock Care \u2014 Afzal vet & pet clinic',faq:'FAQs \u2014 Afzal vet & pet clinic',contact:'Contact \u2014 Afzal vet & pet clinic',about:'About Us \u2014 Afzal vet & pet clinic',privacy:'Privacy Policy \u2014 Afzal vet & pet clinic',terms:'Terms of Service \u2014 Afzal vet & pet clinic',cookies:'Cookie Policy \u2014 Afzal vet & pet clinic'};
+var TITLES={home:'Afzal vet & pet clinic \u2014 Home Visit & Online Vet Care + Pet Food Shop',shop:'Pet Food Shop \u2014 Afzal vet & pet clinic',product:'Product \u2014 Afzal vet & pet clinic',cart:'Your Cart \u2014 Afzal vet & pet clinic',checkout:'Checkout \u2014 Afzal vet & pet clinic',book:'Book a Visit \u2014 Afzal vet & pet clinic',services:'Pet Services \u2014 Afzal vet & pet clinic',faq:'FAQs \u2014 Afzal vet & pet clinic',contact:'Contact \u2014 Afzal vet & pet clinic',about:'About Us \u2014 Afzal vet & pet clinic',privacy:'Privacy Policy \u2014 Afzal vet & pet clinic',terms:'Terms of Service \u2014 Afzal vet & pet clinic',cookies:'Cookie Policy \u2014 Afzal vet & pet clinic'};
 function showPage(name){
   currentPage=name;
   document.querySelectorAll('[data-page]').forEach(function(el){ el.hidden=el.getAttribute('data-page')!==name; });
@@ -612,7 +610,6 @@ function route(){
   else if(parts[0]==='checkout'){ if(!orderLines().length){ window.location.replace('/cart'); } else { renderCheckoutPage(); showPage('checkout'); } }
   else if(parts[0]==='book'){ showPage('book'); }
   else if(parts[0]==='services'){ showPage('services'); }
-  else if(parts[0]==='livestock'){ showPage('livestock'); }
   else if(parts[0]==='faq'){ showPage('faq'); }
   else if(parts[0]==='contact'){ showPage('contact'); }
   else if(parts[0]==='about'){ showPage('about'); }
@@ -667,7 +664,7 @@ document.getElementById('confirmBooking').addEventListener('click',function(){
   toast('Opening WhatsApp — press send to confirm your booking');
 });
 function presetBooking(serviceName){
-  var map={'Home Visit':['Home Visit','Other / Not Sure'],'Online Consultation':['Online Consultation','Other / Not Sure'],'Livestock Care & Artificial Insemination':['Home Visit','Artificial Insemination']};
+  var map={'Home Visit':['Home Visit','Other / Not Sure'],'Online Consultation':['Online Consultation','Other / Not Sure']};
   var svcSel=document.getElementById('wService'), typeSel=document.getElementById('wType');
   function norm(s){return s.toLowerCase().replace(/&amp;/g,'&').replace(/[^a-z0-9]+/g,' ').replace(/checkups/g,'checkup').trim();}
   var target=map[serviceName]?map[serviceName][1]:serviceName;

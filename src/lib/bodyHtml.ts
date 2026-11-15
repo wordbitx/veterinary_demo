@@ -94,7 +94,7 @@ export const BODY_HTML = `
 <div data-page="home">
 <!-- OUR SERVICES (home) -->
 <section id="homeServices" style="padding-top:64px"><div class="wrap">
-  <div class="sec-head center rv"><span class="kicker">Our Services</span><h2>Care for your pet, at our clinic</h2><p>Two services we offer today — consultation with our doctors, and pet food &amp; supplies in store. Ask us on WhatsApp about anything else.</p></div>
+  <div class="sec-head center rv"><span class="kicker">Our Services</span><h2>Care for your pet, at our clinic</h2><p>Seven veterinary services, plus pet food &amp; supplies in store — consultation with our doctors, and everything else your pet needs. Ask us on WhatsApp about anything else.</p></div>
   <div class="svc-grid" id="homeSvcGrid"></div>
   <div class="shop-note rv" style="margin-top:26px"><i data-lucide="phone-call"></i><span><strong>Something else your pet needs?</strong> Call <a href="${TEL}" style="font-weight:700;color:var(--accent)">0307-5987996</a> or ask on WhatsApp — we will tell you honestly whether we can help.</span></div>
 </div></section>

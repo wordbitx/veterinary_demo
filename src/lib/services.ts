@@ -1,7 +1,8 @@
 // Service data for the Afzal vet & pet clinic.
 // SERVICES: the 7 pet services shown on the /services page.
-// HOME_SERVICES: the 2 services shown on the homepage grid (the d294d49
-// homepage — consultation + pet food shop). The farm-animal section was
+// HOME_SERVICES: extra service entries not in SERVICES — the consultation
+// card (used by the detail sheet) and the pet-food entry (the 8th card on
+// the homepage grid, after the 7 pet services). The farm-animal section was
 // removed in round 6 (15 Nov 2026); farm-animal images remain in
 // public/assets/ unreferenced.
 

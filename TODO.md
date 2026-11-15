@@ -287,12 +287,57 @@ screenshots in `shots-feedback-r4/`):
   only via the footer Quick Links.
 - Book wizard: 7 pet services + Pet Food Order + Other / Not Sure; no livestock
   services; animal chips are Dog/Cat/Rabbit/Parrot-Bird/Other only.
-- Home services grid shows the 2 old services (Veterinary Consultation + Pet Food
+- Home services grid showed the 2 old services (Veterinary Consultation + Pet Food
   & Supplies) as in d294d49; the /services page shows all 7 pet services.
-  (The mirror build never rendered the home grid at all — its homeSvcGrid was
-  empty; round 6 fixes that.)
+  SUPERSEDED by Round 7: the home grid now shows all 8 services (7 pet
+  services + Pet Food & Supplies) + the dark CTA card.
 - Known inconsistency carried from the old home (kept verbatim per the brief):
   the home shop teaser says "We don't list prices online" while the shop now
   lists real (demo) prices. Flag for the user to decide.
 - Prices flag (unchanged): all 45 shop prices are Ramzan demo prices (originally
   PetsOne's) — MUST be replaced with Afzal's real prices.
+
+## Round 7 — home services grid = all 8 services (15 Nov 2026, local only — NOT pushed)
+- Root cause (verified on the live site by the parent): src/lib/services.ts
+  HOME_SERVICES held only 2 items and src/lib/app.ts rendered homeSvcGrid
+  from HOME_SERVICES only, so the home grid showed 2 cards and the heading
+  sub-copy said "Two services we offer today".
+- Fix: home grid now renders from SERVICES (7 pet services) + the pet-food
+  entry from HOME_SERVICES (looked up by id 'pet-food') + the dark
+  "Not sure what your animal needs?" CTA card, exactly like the /services
+  page. 8 service cards + CTA = 9 .svc elements in #homeSvcGrid.
+  HOME_SERVICES itself is unchanged (consultation entry still used by the
+  service detail sheet); the data stays single-sourced from services.ts.
+- Sub-copy changed (bodyHtml.ts): "Seven veterinary services, plus pet food
+  & supplies in store — consultation with our doctors, and everything else
+  your pet needs. Ask us on WhatsApp about anything else." Heading
+  "Care for your pet, at our clinic" unchanged. The "Something else your pet
+  needs?" shop-note below the grid is unchanged.
+- Feat-strip (below the hero): content unchanged — exactly 4 items (Visit
+  the Clinic, Call or WhatsApp, Pet Food Shop, Book a Visit). Verified on a
+  real 390px mobile screenshot: all 4 render as a 2x2 of white tiles, none
+  hidden or cut off. On a phone the strip starts at the bottom of the first
+  viewport, so it can read as "only two boxes" at first glance — that is a
+  fold/position effect, not a missing item. No CSS change was needed.
+- Everything else is exactly round 6: old home + Shop By Categories (12
+  tiles) + Top Brands (19 tiles), no livestock anywhere, header exactly 6
+  links, /services page unchanged (7 services + CTA), book wizard unchanged,
+  shop unchanged (45 products, demo prices + existing flag untouched).
+- Verified on preview :3416: build PASS; 18/18 routes 200; /livestock 404;
+  0 Ramzan/Rizwan/PetsOne/RVH-/0326-6565364/Livestock in src TS files and in
+  served home/services/shop HTML (only allowed exception: the dead CSS
+  section comment "/* ---------- livestock ---------- */" in globals.css
+  line 188, no live code); 0 stuck-hidden .rv on all checked pages;
+  0 page/console errors; shop 20 -> 40 after Load more; add-to-cart badge 1;
+  checkout confirms AFZ-20261115-001.
+- Prices flag (unchanged): all 45 shop prices are Ramzan demo prices
+  (originally PetsOne's) — MUST be replaced with Afzal's real prices.
+- Known inconsistency (unchanged, user to decide): the home shop teaser says
+  "We don't list prices online" while the shop now lists demo prices.
+- Push note: only 3 text files changed in round 7 (src/lib/app.ts,
+  src/lib/bodyHtml.ts, src/lib/services.ts) plus TODO.md. No new binaries.
+  The repo is at head 674a46a (round 6 live); verify head again before any
+  round-7 push.
+
+## Round 7b — Pet Food box removed from home grid (user, 15 Nov ~23:04 PKT)
+- Home grid no longer shows Pet Food & Supplies. The dark blue CTA card ("Not sure what your animal needs?") now sits in its place (8th tile). Grid = 7 pet service cards + blue CTA. Change: src/lib/app.ts line 125 (home grid renders SERVICES + ctaCard() only). Book wizard + service detail sheet untouched (Pet Food Order option still in the wizard; HOME_SERVICES data untouched).

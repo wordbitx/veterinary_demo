@@ -122,7 +122,7 @@ var petGrid=document.getElementById('petSvcGrid');
 SERVICES.slice(0,7).forEach(function(s,i){ petGrid.appendChild(svcCard(s,i)); });
 petGrid.appendChild(ctaCard());
 var homeGrid=document.getElementById('homeSvcGrid');
-if(homeGrid){ HOME_SERVICES.forEach(function(s,i){ homeGrid.appendChild(svcCard(s,i)); }); }
+if(homeGrid){ SERVICES.forEach(function(s,i){ homeGrid.appendChild(svcCard(s,i)); }); homeGrid.appendChild(ctaCard()); }
 
 if(window.lucide) window.lucide.createIcons();
 

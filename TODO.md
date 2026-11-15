@@ -35,6 +35,14 @@ Preview re-verified on http://localhost:3412 (build pass, 7/7 routes
 200, 0 "Ramzan", 0 "coming soon" in source + served HTML; desktop +
 mobile screenshots in `shots-feedback-r3/`):
 - Micro-fix after verification: top-3 'Ask on WhatsApp' button → 'WhatsApp' (one line in the narrow half-width button; all other 'Ask on WhatsApp' labels unchanged).
+
+## Feedback round 3 — header white (user, 15 Nov 19:48, NOT pushed yet)
+- Header background: footer-style light gradient REMOVED → plain white
+  (`header.site{background:#fff}` in globals.css; base rule keeps the bottom
+  border + scrolled shadow). White logo tile blends into the white header.
+- Verified: build pass, home 200, 0 "Ramzan"; header screenshots
+  `shots-feedback-r3/d-header-white.png` + `m-header-white.png` — clean on
+  desktop + mobile. Awaiting user approval to push (same 22 text files).
 Preview re-verified on http://localhost:3411 (build pass, 7/7 routes
 200, 0 "Ramzan", 0 "coming soon" in source + served HTML; desktop +
 mobile screenshots in `shots-feedback-r2/`):
@@ -137,3 +145,52 @@ preview — do NOT push from here until that approval is given.
 Tap through the 3-step booking on `/book` on the phone (it opens
 WhatsApp to +92 307 5987996) and check the map pins / "Get directions"
 link opens the right place on Google Maps.
+
+## Done 15 Nov — feedback round 4 (user's screenshot + 5 points, all applied)
+Preview re-verified on http://localhost:3413 (build pass, 10/10 routes
+200, 0 "Ramzan" in src + served HTML, 0 page errors; desktop + mobile
+screenshots in `shots-feedback-r4/`):
+- (1) Service boxes: buttons now SIDE BY SIDE on one line — equal width
+  (flex 1fr/1fr), same size, same baseline, pinned to the bottom, cards equal
+  height (desktop 299px each; button tops 1510/1510, widths 115/117).
+  Labels/destinations/copy unchanged. Because the buttons are only ~117px
+  each at desktop 4-across, the icons inside .svc-actions buttons are hidden
+  (text-only pills) — "Get Directions" would not fit with an icon.
+  Mobile (390px): services grid is 1 column (a later max-width:639px rule
+  forced 2-across — the new ≤560px rule wins); buttons 158/160px, same top.
+- (2) Footer social icons (brand column, under phone/hours; 4-column layout
+  intact): WhatsApp → https://wa.me/923075987996; Facebook →
+  https://facebook.com/people/Afzal-vet-and-pet-clinic/100063922670495/
+  (CONFIRMED match: page name + phone 03075987996 in its video + Raiwind
+  Road address; found via web search + opening the reel page);
+  Google (star icon) → real Maps link https://maps.app.goo.gl/AoWCgEtuofBAHnJ37
+  labelled "Google reviews". Instagram: NO confident match found in web
+  search (no page for this clinic) → rendered DISABLED as a <span> (faded,
+  title "Instagram link coming soon") — user must send the page link.
+  Never linked to WordbitX socials, no "#" links.
+- (3) Policy pages (new routes, same header/footer, "Last updated:
+  15 November 2026", short readable sections, honest content only):
+  /privacy, /terms, /cookies — no accounts, nothing saved in a database
+  (booking/contact go through WhatsApp), no online payments (charges
+  confirmed on WhatsApp, payment arranged with the clinic), no cookies set
+  by the site and no analytics/trackers (verified: no Set-Cookie header on
+  the served site, no gtag/fbq/analytics strings in served HTML, no external
+  scripts — only Google Fonts). Links added to the footer bottom bar.
+  No sitemap file exists in the repo, so nothing to add there.
+- (4) Header logo blends in: border + box-shadow removed from the header
+  logo tile (.brand-logo, scoped to header.site only — footer tile untouched);
+  background transparent. Verified computed style: bg rgba(0,0,0,0),
+  border 0px, shadow none. Checked: no :hover shadow rule exists on
+  .brand / .brand-logo. Logo PNG has a transparent background (corners
+  alpha 0), so it sits directly on the white header. Desktop + mobile header
+  screenshots show no tile edge or shadow.
+- (5) Reveal audit (Quran-style, same .rv system): every major section on
+  all 10 routes carries Reveal — containers or their staggered children.
+  Added `rv` to the 3 breadcrumb navs (services/shop/about), the only bare
+  elements found; the 3 policy pages have Reveal on the container + every
+  section. Probe: scrolled every route + waited past the 8000ms force-reveal
+  — total 113 .rv elements, 0 stuck hidden, 0 page errors on all 10 routes.
+- NOTE: the only "coming soon" text in src is the disabled Instagram icon's
+  title/aria-label in bodyHtml.ts (the allowed exception).
+- Push/deploy: NOT done — awaiting user approval (round 3 white-header
+  change is also still in the working tree and will ship in the same push).

@@ -192,7 +192,10 @@ export function initAfzalApp(): void {
     services: 'Services — Afzal vet & pet clinic',
     faq: 'FAQs — Afzal vet & pet clinic',
     contact: 'Contact — Afzal vet & pet clinic',
-    about: 'About Us — Afzal vet & pet clinic'
+    about: 'About Us — Afzal vet & pet clinic',
+    privacy: 'Privacy Policy — Afzal vet & pet clinic',
+    terms: 'Terms of Service — Afzal vet & pet clinic',
+    cookies: 'Cookie Policy — Afzal vet & pet clinic'
   };
   function showPage(name) {
     currentPage = name;
@@ -212,6 +215,9 @@ export function initAfzalApp(): void {
     else if (parts[0] === 'faq') { showPage('faq'); }
     else if (parts[0] === 'contact') { showPage('contact'); }
     else if (parts[0] === 'about') { showPage('about'); }
+    else if (parts[0] === 'privacy') { showPage('privacy'); }
+    else if (parts[0] === 'terms') { showPage('terms'); }
+    else if (parts[0] === 'cookies') { showPage('cookies'); }
     else { showPage('home'); }
   }
   route();

@@ -258,7 +258,7 @@ export const BODY_HTML = `
 <div data-page="services" hidden>
 <!-- SERVICES -->
 <section id="services"><div class="wrap">
-  <nav class="crumb" aria-label="Breadcrumb"><button class="back-btn" data-backbtn><i data-lucide="arrow-left"></i>Back</button><a href="/">Home</a><span class="sep">›</span><b>Services</b></nav>
+  <nav class="crumb rv" aria-label="Breadcrumb"><button class="back-btn" data-backbtn><i data-lucide="arrow-left"></i>Back</button><a href="/">Home</a><span class="sep">›</span><b>Services</b></nav>
   <div class="sec-head rv"><span class="kicker">Our Services</span><h2>Care for your pet, at our clinic</h2><p>Two services we offer today. Tap any service to see what it includes — or book it straight away.</p></div>
   <div class="svc-grid" id="petSvcGrid"></div>
   <div class="shop-note rv" style="margin-top:26px"><i data-lucide="phone-call"></i><span><strong>Something else your pet needs?</strong> Call <a href="${TEL}" style="font-weight:700;color:var(--accent)">0307-5987996</a> or ask on WhatsApp — we will tell you honestly whether we can help.</span></div>
@@ -268,7 +268,7 @@ export const BODY_HTML = `
 <div data-page="shop" hidden>
 <!-- PET FOOD SHOP -->
 <section class="page-sec"><div class="wrap">
-  <nav class="crumb" aria-label="Breadcrumb"><button class="back-btn" data-backbtn><i data-lucide="arrow-left"></i>Back</button><a href="/">Home</a><span class="sep">›</span><b>Pet Food Shop</b></nav>
+  <nav class="crumb rv" aria-label="Breadcrumb"><button class="back-btn" data-backbtn><i data-lucide="arrow-left"></i>Back</button><a href="/">Home</a><span class="sep">›</span><b>Pet Food Shop</b></nav>
   <div class="shop-banner rv"><h1>Pet Food Shop</h1><p>Pet food and supplies are available at the clinic in Kot Araian, Lahore. We don't list prices online — message us on WhatsApp for availability and prices, and collect from the clinic.</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
       <a class="btn btn-wa" href="${WA_GENERIC}" target="_blank" rel="noopener">${WA}Ask on WhatsApp</a>
@@ -401,7 +401,7 @@ export const BODY_HTML = `
 
 <div data-page="about" hidden>
 <section class="page-sec"><div class="wrap">
-  <nav class="crumb" aria-label="Breadcrumb"><button class="back-btn" data-backbtn><i data-lucide="arrow-left"></i>Back</button><a href="/">Home</a><span class="sep">›</span><b>About</b></nav>
+  <nav class="crumb rv" aria-label="Breadcrumb"><button class="back-btn" data-backbtn><i data-lucide="arrow-left"></i>Back</button><a href="/">Home</a><span class="sep">›</span><b>About</b></nav>
   <div class="about-hero-card rv">
     <span class="kicker">About Us</span><h1 class="about-hero-h">Afzal vet &amp; pet clinic</h1><p class="about-hero-p">Compassionate Care, Healthy Lives — a veterinary clinic &amp; pet store in Kot Araian, Lahore.</p>
   </div>
@@ -445,6 +445,59 @@ export const BODY_HTML = `
   </div>
 </div></section>
 </div>
+
+<div data-page="privacy" hidden>
+<!-- PRIVACY POLICY -->
+<section class="page-sec"><div class="wrap">
+  <nav class="crumb rv" aria-label="Breadcrumb"><button class="back-btn" data-backbtn><i data-lucide="arrow-left"></i>Back</button><a href="/">Home</a><span class="sep">›</span><b>Privacy Policy</b></nav>
+  <div class="policy rv">
+    <span class="kicker">Privacy Policy</span>
+    <h1>Privacy Policy</h1>
+    <p class="policy-date">Last updated: 15 November 2026</p>
+    <div class="policy-sec rv"><h2>Who we are</h2><p>This is the website of <strong style="color:var(--ink)">Afzal vet &amp; pet clinic</strong>, a veterinary clinic and pet store in Kot Araian, Lahore. Visit us at Main Kot Araian - Jia Bagga Rd, Kot Araian, Lahore 54000, or call / WhatsApp <a href="${TEL}">0307-5987996</a>.</p></div>
+    <div class="policy-sec rv"><h2>No accounts</h2><p>You do not need an account to use this website. There is no sign-up, no login and no password — and we do not keep user accounts of any kind.</p></div>
+    <div class="policy-sec rv"><h2>What happens when you book or message us</h2><p>When you fill in the booking form or the contact form, the details you type (your name, phone number and message) are <strong style="color:var(--ink)">not saved on this website</strong> — there is no database here. The form simply opens WhatsApp with your message already written. Nothing is shared with the clinic until you press send in WhatsApp.</p></div>
+    <div class="policy-sec rv"><h2>What we do not collect</h2><p>We do not run analytics, advertising trackers or social-media pixels on this website, and this website does not set any cookies of its own (see our <a href="/cookies">Cookie Policy</a>). We do not sell or share your details. The clinic uses your message only to reply about your pet.</p></div>
+    <div class="policy-sec rv"><h2>Links to other services</h2><p>Links on this site take you to other services — WhatsApp, Google Maps and Google reviews, and our Facebook page. Those services have their own privacy policies, and what you share there is governed by them, not by this page.</p></div>
+    <div class="policy-sec rv"><h2>Questions</h2><p>If you have a question about your privacy, call or WhatsApp us on <a href="${TEL}">0307-5987996</a> — we reply personally.</p></div>
+  </div>
+</div></section>
+</div>
+
+<div data-page="terms" hidden>
+<!-- TERMS OF SERVICE -->
+<section class="page-sec"><div class="wrap">
+  <nav class="crumb rv" aria-label="Breadcrumb"><button class="back-btn" data-backbtn><i data-lucide="arrow-left"></i>Back</button><a href="/">Home</a><span class="sep">›</span><b>Terms of Service</b></nav>
+  <div class="policy rv">
+    <span class="kicker">Terms of Service</span>
+    <h1>Terms of Service</h1>
+    <p class="policy-date">Last updated: 15 November 2026</p>
+    <div class="policy-sec rv"><h2>What this website does</h2><p>This website gives information about Afzal vet &amp; pet clinic and lets you request a visit or ask a question through WhatsApp. There are no user accounts and no online payments on this website.</p></div>
+    <div class="policy-sec rv"><h2>Booking a visit</h2><p>A booking request sent on WhatsApp is a request, not a confirmed appointment. Your visit is confirmed only when the clinic replies and agrees a time with you. The exact time inside your chosen slot is confirmed with you on WhatsApp.</p></div>
+    <div class="policy-sec rv"><h2>Prices and payment</h2><p>Prices are not listed on this website. Charges are confirmed for your pet before treatment starts — call <a href="${TEL}">0307-5987996</a> or ask on WhatsApp. No payment is taken on this website; payment is arranged with the clinic directly.</p></div>
+    <div class="policy-sec rv"><h2>Services</h2><p>The clinic offers veterinary consultations with Dr Umair Afzal, the clinic's main doctor, and pet food and supplies in store. The clinic is named after its founder, Dr Afzal.</p></div>
+    <div class="policy-sec rv"><h2>Emergencies</h2><p>If your pet is seriously ill or injured, call <a href="${TEL}">0307-5987996</a> right away — do not wait for a website reply. Information on this website is general guidance, not a substitute for veterinary advice.</p></div>
+    <div class="policy-sec rv"><h2>Content on this site</h2><p>Clinic details, reviews and photos are shown as listed. The reviews shown are public Google reviews of the clinic. We may update this website from time to time; the date at the top of this page shows the latest update.</p></div>
+  </div>
+</div></section>
+</div>
+
+<div data-page="cookies" hidden>
+<!-- COOKIE POLICY -->
+<section class="page-sec"><div class="wrap">
+  <nav class="crumb rv" aria-label="Breadcrumb"><button class="back-btn" data-backbtn><i data-lucide="arrow-left"></i>Back</button><a href="/">Home</a><span class="sep">›</span><b>Cookie Policy</b></nav>
+  <div class="policy rv">
+    <span class="kicker">Cookie Policy</span>
+    <h1>Cookie Policy</h1>
+    <p class="policy-date">Last updated: 15 November 2026</p>
+    <div class="policy-sec rv"><h2>Our position, plainly</h2><p>This website does <strong style="color:var(--ink)">not set any cookies</strong> on your device. There is no cookie banner to accept, because there is nothing to accept.</p></div>
+    <div class="policy-sec rv"><h2>No analytics, no advertising</h2><p>We do not run Google Analytics, advertising trackers or social-media pixels. We do not track how you move around this website.</p></div>
+    <div class="policy-sec rv"><h2>Fonts</h2><p>This website loads its fonts (Poppins and Inter) from Google Fonts. Loading the fonts does not place cookies on your device from this website. Google's own privacy policy applies to that request.</p></div>
+    <div class="policy-sec rv"><h2>Links you tap</h2><p>When you tap a link to WhatsApp, Google Maps, Google reviews or Facebook, you leave this website — and those services may set their own cookies under their own policies.</p></div>
+    <div class="policy-sec rv"><h2>If this changes</h2><p>If we ever add cookies, analytics or tracking in the future, we will update this page first and say so here, with the date above.</p></div>
+  </div>
+</div></section>
+</div>
 </main>
 <footer class="rv"><div class="wrap">
   <div class="foot-grid">
@@ -453,6 +506,12 @@ export const BODY_HTML = `
       <p>Compassionate care, healthy lives. A veterinary clinic &amp; pet store in Kot Araian, Lahore.</p>
       <a class="foot-phone" href="${TEL}"><i data-lucide="phone"></i>0307-5987996</a>
       <p style="margin-top:8px">Open · Closes 11 PM</p>
+      <div class="foot-social" aria-label="Follow Afzal vet &amp; pet clinic">
+        <a href="https://wa.me/923075987996" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">${WA}</a>
+        <a href="https://facebook.com/people/Afzal-vet-and-pet-clinic/100063922670495/" target="_blank" rel="noopener" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+        <a href="${MAPS}" target="_blank" rel="noopener" aria-label="Google reviews"><i data-lucide="star"></i></a>
+        <span class="foot-social-off" title="Instagram link coming soon" aria-label="Instagram — link coming soon"><i data-lucide="instagram"></i></span>
+      </div>
     </div>
     <div><h4>Services</h4><ul>
       <li><button data-detail="consultation">Veterinary Consultation</button></li><li><button data-detail="pet-food">Pet Food &amp; Supplies</button></li><li><a href="/book">Book a Visit</a></li>
@@ -464,7 +523,7 @@ export const BODY_HTML = `
       <li><a href="/about">About Us</a></li><li><a href="/book">Book a Visit</a></li><li><a href="/shop">Pet Food Shop</a></li><li><a href="/faq">FAQs</a></li><li><a href="/contact">Contact</a></li><li><a href="/#reviews">Reviews</a></li>
     </ul></div>
   </div>
-  <div class="foot-bottom"><span>© 2026 Afzal vet &amp; pet clinic. All rights reserved.</span><span>Your Pet. Our Priority.</span><span class="wb-credit">Website by <a href="https://wordbitx.com" target="_blank" rel="noopener">WordbitX</a></span></div>
+  <div class="foot-bottom"><span>© 2026 Afzal vet &amp; pet clinic. All rights reserved.</span><span class="foot-policy"><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a> · <a href="/cookies">Cookie Policy</a></span><span>Your Pet. Our Priority.</span><span class="wb-credit">Website by <a href="https://wordbitx.com" target="_blank" rel="noopener">WordbitX</a></span></div>
 </div></footer>
 
 <a class="wa-float" href="${WA_GENERIC}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">${WA}</a>

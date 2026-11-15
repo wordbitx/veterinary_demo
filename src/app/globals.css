@@ -1231,10 +1231,12 @@ footer ul a:hover,footer ul button:hover{color:var(--navy)}
 .wb-credit a{color:var(--navy);border-bottom-color:rgba(1,58,110,.35)}
 
 /* ---------- Feedback round 2 (15 Nov) — header logo/gradient, 4-box alignment, footer lockup ---------- */
-/* (1) Header: clean WHITE logo tile (was black) + the same light gradient as the footer
-   (white → soft green #EFF7EB → pale blue #DCEBF5) so the real logo reads cleanly. */
+/* (1) Header: clean WHITE logo tile (was black) + plain WHITE header background
+   (user, 15 Nov 19:48 — the white logo tile blends into a white header).
+   The old footer-style gradient rule was removed; base header rule keeps the
+   bottom border + scrolled shadow for separation. */
 .brand-logo{background:#fff;border:1px solid var(--line);box-shadow:0 8px 20px -10px rgba(1,58,110,.35)}
-header.site{background:linear-gradient(180deg,#ffffff 0%,#EFF7EB 48%,#DCEBF5 100%)}
+header.site{background:#fff}
 /* (2) Four "Care for your pet" boxes: equal height (grid stretch + flex column cards) with the
    button row pinned to the bottom (margin-top:auto) and both buttons stacked full-width, so
    every card's buttons are the SAME size and sit on the SAME baseline. */
@@ -1271,3 +1273,42 @@ header.site{background:linear-gradient(180deg,#ffffff 0%,#EFF7EB 48%,#DCEBF5 100
 /* (C) "At our clinic" gallery: compact — 4 in ONE row on desktop; horizontal scroll (peek) on mobile. */
 .gal-grid{grid-template-columns:repeat(4,1fr);gap:14px}
 @media(max-width:860px){.gal-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:10px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}.gal{flex:0 0 78%;scroll-snap-align:start}}
+
+/* ---------- Feedback round 4 (user, 15 Nov) ---------- */
+/* (1) Service boxes: the two buttons sit SIDE BY SIDE on ONE line — equal width
+   (flex 1fr/1fr), same size, same baseline, pinned to the bottom (mt-auto).
+   Overrides the round-2 stacked full-width layout. The buttons are ~117px each
+   at desktop 4-across, so the icons are hidden inside .svc-actions only (labels,
+   destinations and copy unchanged) — "Get Directions" would not fit with an icon. */
+.svc-actions{flex-direction:row;align-items:stretch}
+.svc-actions .btn{flex:1 1 0;width:auto;min-width:0;justify-content:center;padding:10px 8px;font-size:.85rem;white-space:nowrap}
+.svc-actions .btn svg{display:none}
+/* Mobile: services grid 1 column at ≤560px so the side-by-side buttons have room
+   (a later max-width:639px rule forces 2-across — this later rule wins at ≤560px). */
+@media(max-width:560px){
+  .svc-grid{grid-template-columns:1fr}
+  .svc-actions .btn{padding:11px 10px;font-size:.84rem}
+}
+/* (logo blend) Header logo: NO separate card — no border, no shadow, transparent
+   background, so the real logo sits directly on the white header and blends in.
+   Header only (scoped to header.site); the footer logo tile is untouched.
+   Checked: no :hover shadow rule exists on .brand / .brand-logo, so nothing to strip there. */
+header.site .brand-logo{background:transparent;border:0;box-shadow:none;border-radius:0}
+/* (footer socials) Circular icon buttons in the footer brand column. */
+.foot-social{display:flex;gap:10px;margin-top:18px}
+.foot-social a,.foot-social span{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(1,58,110,.22);color:var(--navy);text-decoration:none;transition:background .25s,color .25s,border-color .25s}
+.foot-social a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.foot-social svg{width:19px;height:19px}
+.foot-social-off{opacity:.45;cursor:default}
+/* (footer policy links) */
+.foot-policy a{color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(1,58,110,.35)}
+.foot-policy a:hover{color:var(--accent)}
+/* (policy pages) Simple readable policy layout; same header/footer as the site. */
+.policy{max-width:780px;margin:0 auto}
+.policy h1{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:800;color:var(--navy);margin:10px 0 6px}
+.policy-date{color:var(--muted);font-size:.9rem;margin-bottom:8px}
+.policy-sec{margin-top:30px}
+.policy-sec h2{font-size:1.18rem;color:var(--navy);margin-bottom:8px}
+.policy-sec p,.policy-sec li{color:var(--muted);font-size:.96rem;line-height:1.75}
+.policy-sec ul{padding-left:20px;display:grid;gap:6px;margin:8px 0}
+.policy-sec a{color:var(--accent);font-weight:600}

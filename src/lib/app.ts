@@ -39,10 +39,16 @@ function pkr(n){ return 'PKR ' + n.toLocaleString('en-US'); }
 var header=document.getElementById('siteHeader');
 window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>10);},{passive:true});
 var burger=document.getElementById('burgerBtn'), menu=document.getElementById('mobileMenu');
-/* Edit 21 — scroll lock: while the mobile menu is open, the page behind it must not scroll.
-   overflow:hidden on html+body stops wheel/keyboard/programmatic scroll; a non-passive touchmove
-   guard covers mobile browsers that keep scrolling a touch drag despite it. The menu panel itself
-   stays scrollable, and its overscroll never chains to the page (see CSS above). */
+/* Edit 21 (round 10 fix) — scroll lock: while the mobile menu is open, the page behind it must
+   not scroll. The FIRST version used overflow:hidden on html+body (menu-lock) — that BROKE
+   position:sticky on the header, so opening the menu while scrolled jumped the whole header
+   (burger + open menu) off the top of the screen and the page looked hung / nothing clickable
+   (reproduced 16 Nov: headerTop 0 -> -698 on open at scrollY 700). The SECOND version
+   (fixed-body lock) failed too — body left the flow, scrollY clamped to 0 and the sticky
+   header sat at its shifted flow position, still off-screen. This THIRD version uses
+   overflow:clip: it forbids scrolling but, unlike hidden, does NOT create a scroll container,
+   so the sticky header keeps working and the scroll position stays put. The touchmove guard
+   stays as a fallback for older browsers without overflow:clip support. */
 function menuTouchGuard(e){
   if(menu.classList.contains('open') && !e.target.closest('#mobileMenu')) e.preventDefault();
 }
@@ -59,8 +65,10 @@ function unlockPageScroll(){
 }
 function setMobileMenu(open){
   menu.classList.toggle('open',open);
+  burger.classList.toggle('open',open);
   burger.setAttribute('aria-expanded',open?'true':'false');
   burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  menu.querySelectorAll('a').forEach(function(a){a.tabIndex=open?0:-1;});
   if(open)lockPageScroll(); else unlockPageScroll();
 }
 function closeMobileMenu(){ if(menu.classList.contains('open'))setMobileMenu(false); }

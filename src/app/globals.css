@@ -106,7 +106,7 @@ nav.main a{text-decoration:none;font-weight:600;font-size:.93rem;opacity:.88;whi
 .cart-btn{position:relative;background:var(--chip);border:0;width:47px;height:47px;flex:0 0 47px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--navy)}
 .cart-btn svg{width:21px;height:21px}
 .cart-badge{position:absolute;top:-4px;right:-4px;background:var(--accent);color:#fff;font-size:.68rem;font-weight:800;min-width:20px;height:20px;border-radius:999px;display:grid;place-items:center;padding:0 5px}
-.burger{display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--ink)} .burger svg{width:26px;height:26px}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--ink)} .burger span{display:block;width:20px;height:2.5px;border-radius:99px;background:var(--navy);transition:transform .3s ease-out,opacity .3s ease-out} .burger:active{transform:scale(.92)}
 .mobile-menu{display:none;border-top:1px solid var(--line);padding:10px 0 16px} .mobile-menu.open{display:block}
 .mobile-menu a{display:block;padding:12px 4px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
 .mobile-menu .mm-actions{display:flex;gap:10px;padding-top:14px}.mobile-menu .mm-actions .btn{flex:1}
@@ -1071,7 +1071,6 @@ body.on-product .sticky-bar{display:none!important}
  .cart-btn svg{width:19px;height:19px}
  .head-wa{width:40px!important;height:40px;flex-basis:40px}
  .burger{width:40px;height:40px;flex-basis:40px}
- .burger svg{width:21px;height:21px}
  /* menu opens as one clean panel under the header, links as proper rows with chevrons */
  .mobile-menu{margin:0 12px 12px;padding:6px 8px 10px;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 34px -18px rgba(1,58,110,.35);max-height:calc(100dvh - 128px)}
  .mobile-menu>a{display:flex;align-items:center;justify-content:space-between;padding:12px 10px;font-family:Poppins,sans-serif;font-size:.93rem;border-bottom:1px solid var(--line)}
@@ -1097,8 +1096,11 @@ body.on-product .sticky-bar{display:none!important}
  .hero-ctas .btn{flex:1 1 0;min-width:0;width:auto;padding:10px 8px;font-size:.86rem;gap:6px}
  .hero-ctas .btn svg,.hero-ctas .wa-ic{width:15px;height:15px;flex:0 0 15px}
 }
-/* FIX 3 — while the mobile menu is open the page behind it cannot scroll; the menu panel keeps its own internal scroll (max-height + overflow rules above) and its scroll never chains to the page */
-html.menu-lock,body.menu-lock{overflow:hidden;overscroll-behavior:none}
+/* FIX 3 — round 10: overflow:clip (NOT hidden) while the mobile menu is open. Hidden broke
+   position:sticky on the header (menu jumped off-screen when scrolled); clip forbids scrolling
+   without creating a scroll container, so the sticky header keeps working. Scroll lock itself
+   is the menu-lock class in app.ts (lockPageScroll). */
+html.menu-lock,body.menu-lock{overflow:clip;overscroll-behavior:none}
 .mobile-menu{overscroll-behavior:contain}
 /* ================= Next.js rebuild — user fixes, 5 Nov 2026 ================= */
 /* These rules sit last so they override the ported static CSS above. */
@@ -1130,8 +1132,8 @@ html.menu-lock,body.menu-lock{overflow:hidden;overscroll-behavior:none}
 
 /* --- (2) MOBILE HEADER: clear gap, equal side padding, uniform 40px circles --- */
 @media(max-width:1024px){
-  .burger{width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:var(--chip);display:grid;place-items:center;padding:0}
-  .burger svg{width:21px;height:21px}
+  .burger{width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:var(--chip);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+  .burger span{width:19px}
 }
 @media(max-width:560px){
   .wrap.header-in{padding:12px 18px}
@@ -1360,3 +1362,36 @@ header.site .brand-logo{background:transparent;border:0;box-shadow:none;border-r
 .map-strip svg{width:18px;height:18px;color:var(--accent);flex:0 0 18px}
 .map-strip .btn{margin-left:auto}
 @media(max-width:860px){.map-card{grid-template-columns:1fr}.map-info{padding:24px 20px}.map-frame iframe{min-height:200px}.map-frame--tall iframe{min-height:220px}.map-strip .btn{margin-left:0}}
+
+/* ---------- Round 10 — mobile menu: Quran-style animation + scroll-hang fix (16 Nov 2026) ----------
+   (1) HANG ROOT CAUSE: the old menu-lock (overflow:hidden on html+body) broke position:sticky
+   on the header — opening the menu while scrolled jumped the header + open menu off the top
+   of the screen and locked scrolling, so the page looked hung with nothing clickable
+   (measured: headerTop 0 -> -698 on open at scrollY 700). The lock is now the fixed-body
+   technique in app.ts; the overflow:hidden rules are gone (see FIX 3 note above).
+   (2) ANIMATION (same as Quran Light Header.tsx): burger bars morph into an X, the panel
+   slides down + fades in, links stagger in one by one. Panel visuals moved from .mobile-menu
+   (Edit 20) to the inner .mm-panel wrapper so the wrapper itself stays unstyled. */
+.mobile-menu{padding:0!important;border:0!important;margin:0!important;max-height:none!important;overflow:visible!important}
+.mm-panel{margin:0 12px 12px;padding:6px 8px 10px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 18px 34px -18px rgba(1,58,110,.35);max-height:calc(100dvh - 128px);overflow-y:auto;overscroll-behavior:contain}
+.mm-panel>a{display:flex;align-items:center;justify-content:space-between;padding:12px 10px;font-family:Poppins,sans-serif;font-size:.93rem;font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
+.mm-panel>a:last-of-type{border-bottom:0}
+.mm-panel>a::after{content:"";width:8px;height:8px;flex:0 0 8px;border-top:2px solid #9DB2C6;border-right:2px solid #9DB2C6;transform:rotate(45deg)}
+.mm-panel .mm-actions{display:flex;gap:10px;padding:10px 2px 2px}
+.mm-panel .mm-actions .btn{flex:1}
+/* burger morphs into an X when open (3 bars, 2.5px, 5px gap — centres 7.5px apart) */
+.burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.open span:nth-child(2){transform:scaleX(0);opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+/* menu entrance: panel slides down + fades; links stagger in one by one */
+@keyframes menuPanelIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+@keyframes menuLinkIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.mobile-menu.open .mm-panel{animation:menuPanelIn .45s cubic-bezier(.22,.8,.32,1) both}
+.mobile-menu.open .mm-panel>a,.mobile-menu.open .mm-panel .mm-actions{animation:menuLinkIn .4s ease-out both}
+.mobile-menu.open .mm-panel>a:nth-child(1){animation-delay:90ms}
+.mobile-menu.open .mm-panel>a:nth-child(2){animation-delay:145ms}
+.mobile-menu.open .mm-panel>a:nth-child(3){animation-delay:200ms}
+.mobile-menu.open .mm-panel>a:nth-child(4){animation-delay:255ms}
+.mobile-menu.open .mm-panel>a:nth-child(5){animation-delay:310ms}
+.mobile-menu.open .mm-panel>a:nth-child(6){animation-delay:365ms}
+.mobile-menu.open .mm-panel .mm-actions{animation-delay:420ms}
